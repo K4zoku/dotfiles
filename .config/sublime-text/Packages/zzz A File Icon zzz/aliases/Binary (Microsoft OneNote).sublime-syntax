@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Binary (Microsoft OneNote)
+scope: binary.onenote
+hidden: true
+file_extensions:
+  - one
+contexts:
+  main: []

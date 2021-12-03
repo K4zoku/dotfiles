@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: Plain Text (Readme)
+scope: text.plain.readme
+hidden: true
+file_extensions:
+  - AUTHORS
+  - NOTICE
+  - README
+  - RELEASE-NOTES
+contexts:
+  main: []

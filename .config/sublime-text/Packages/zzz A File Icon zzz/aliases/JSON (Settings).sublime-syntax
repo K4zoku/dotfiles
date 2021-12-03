@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: JSON (Settings)
+scope: source.json.settings
+hidden: true
+file_extensions:
+  - .jshintrc
+  - .jsbeautifyrc
+contexts:
+  main:
+    - include: scope:source.json
+      apply_prototype: true

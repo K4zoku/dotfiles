@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Dart)
+scope: source.dart
+hidden: true
+file_extensions:
+  - dart
+contexts:
+  main: []

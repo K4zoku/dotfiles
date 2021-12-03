@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Crystal)
+scope: source.crystal
+hidden: true
+file_extensions:
+  - cr
+contexts:
+  main: []

@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: Binary (Blender)
+scope: binary.blender
+hidden: true
+file_extensions:
+  - blend
+  - blend1
+  - blend2
+  - blend3
+contexts:
+  main: []

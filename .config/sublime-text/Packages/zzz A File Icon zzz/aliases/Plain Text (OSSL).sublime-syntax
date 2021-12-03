@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (OSSL)
+scope: source.ossl
+hidden: true
+file_extensions:
+  - ossl
+contexts:
+  main: []

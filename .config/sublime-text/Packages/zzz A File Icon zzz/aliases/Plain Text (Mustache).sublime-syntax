@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Plain Text (Mustache)
+scope: txt.html.mustache
+hidden: true
+file_extensions:
+  - hgn
+  - hjs
+  - mst
+  - mu
+  - mustache
+contexts:
+  main: []

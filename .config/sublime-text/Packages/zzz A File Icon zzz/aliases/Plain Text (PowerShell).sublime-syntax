@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (PowerShell)
+scope: source.powershell
+hidden: true
+file_extensions:
+  - ps1
+  - psm1
+  - psd1
+contexts:
+  main: []

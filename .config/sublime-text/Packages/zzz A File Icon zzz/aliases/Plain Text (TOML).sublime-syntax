@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Plain Text (TOML)
+scope: source.toml
+hidden: true
+file_extensions:
+  - toml
+  - tml
+  - Cargo.lock
+  - Gopkg.lock
+  - Pipfile
+contexts:
+  main: []

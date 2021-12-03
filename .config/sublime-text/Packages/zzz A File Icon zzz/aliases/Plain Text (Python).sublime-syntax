@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Python)
+scope: text.plain.python
+hidden: true
+file_extensions:
+  - .python-version
+contexts:
+  main: []

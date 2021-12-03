@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: YAML (Taskfile)
+scope: source.yaml.taskfile
+hidden: true
+file_extensions:
+  - Taskfile
+contexts:
+  main:
+    - include: scope:source.json
+      apply_prototype: true

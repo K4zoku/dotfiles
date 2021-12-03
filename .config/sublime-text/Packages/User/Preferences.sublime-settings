@@ -1,0 +1,10 @@
+{
+	"font_face": "BlexMono Nerd Font Mono Medium",
+	"font_size": 10,
+	"theme": "ayu-light.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "ayu-light.sublime-color-scheme",
+}

@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (Cython)
+scope: source.cython
+hidden: true
+file_extensions:
+  - pyx
+  - pxi
+  - pxd
+contexts:
+  main: []

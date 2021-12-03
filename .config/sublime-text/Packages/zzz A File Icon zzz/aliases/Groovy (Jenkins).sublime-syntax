@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: Groovy (Jenkins)
+scope: source.groovy.jenkins
+hidden: true
+file_extensions:
+  - Jenkinsfile
+  - jenkins
+contexts:
+  main:
+    - include: scope:source.groovy
+      apply_prototype: true

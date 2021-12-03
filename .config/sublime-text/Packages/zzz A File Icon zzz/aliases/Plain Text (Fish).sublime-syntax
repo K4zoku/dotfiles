@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Fish)
+scope: source.shell.fish
+hidden: true
+file_extensions:
+  - fish
+contexts:
+  main: []

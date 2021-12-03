@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Julia)
+scope: source.julia
+hidden: true
+file_extensions:
+  - jl
+contexts:
+  main: []

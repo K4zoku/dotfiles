@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+name: Plain Text (Handlebars)
+scope: text.html.handlebars
+hidden: true
+file_extensions:
+  - handlebars
+  - hbr
+  - hbrs
+  - hbs
+  - hdbs
+  - rac
+  - stache
+contexts:
+  main: []

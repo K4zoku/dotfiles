@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Binary (Windows Shortcut)
+scope: binary.lnk
+hidden: true
+file_extensions:
+  - lnk
+contexts:
+  main: []

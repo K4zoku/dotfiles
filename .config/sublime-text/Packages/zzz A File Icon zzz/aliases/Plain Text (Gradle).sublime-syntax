@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Gradle)
+scope: source.gradle
+hidden: true
+file_extensions:
+  - gradle
+contexts:
+  main: []

@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Zig
+scope: source.zig
+hidden: true
+file_extensions:
+  - zig
+contexts:
+  main: []

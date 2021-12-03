@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (LSL)
+scope: source.lsl
+hidden: true
+file_extensions:
+  - lsl
+contexts:
+  main: []

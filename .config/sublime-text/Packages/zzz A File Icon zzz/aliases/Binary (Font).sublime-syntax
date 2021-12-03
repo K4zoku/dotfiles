@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Binary (Font)
+scope: binary.font
+hidden: true
+file_extensions:
+  - eot
+  - otf
+  - ttf
+  - woff
+  - woff2
+contexts:
+  main: []

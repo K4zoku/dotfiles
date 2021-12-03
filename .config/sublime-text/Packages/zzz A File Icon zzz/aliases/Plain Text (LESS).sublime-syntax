@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (LESS)
+scope: source.less
+hidden: true
+file_extensions:
+  - less
+  - css.less
+contexts:
+  main: []

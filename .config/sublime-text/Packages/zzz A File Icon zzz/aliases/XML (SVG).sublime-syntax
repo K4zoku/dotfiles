@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: XML (SVG)
+scope: text.xml.svg
+hidden: true
+file_extensions:
+  - svg
+contexts:
+  main:
+    - include: scope:text.xml
+      apply_prototype: true

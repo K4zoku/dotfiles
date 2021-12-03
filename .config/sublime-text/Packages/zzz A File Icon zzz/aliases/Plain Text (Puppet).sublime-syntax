@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Puppet)
+scope: source.puppet
+hidden: true
+file_extensions:
+  - pp
+  - epp
+contexts:
+  main: []

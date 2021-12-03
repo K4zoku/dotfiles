@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Stylus)
+scope: source.stylus
+hidden: true
+file_extensions:
+  - styl
+  - stylus
+contexts:
+  main: []

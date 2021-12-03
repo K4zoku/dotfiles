@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Markdown JSX)
+scope: text.html.markdown.jsx
+hidden: true
+file_extensions:
+  - mdx
+contexts:
+  main: []

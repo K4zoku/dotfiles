@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+name: Binary (Microsoft Word)
+scope: binary.word
+hidden: true
+file_extensions:
+  - doc
+  - docx
+  - docm
+  - docxml
+  - dotm
+  - dotx
+  - wri
+contexts:
+  main: []

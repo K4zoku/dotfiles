@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+name: Binary (Audio)
+scope: binary.audio
+hidden: true
+file_extensions:
+  - mp3
+  - m4p
+  - aac
+  - aiff
+  - au
+  - flac
+  - m4a
+  - mpc
+  - mp+
+  - mpp
+  - oga
+  - opus
+  - ra
+  - rm
+  - wav
+  - wma
+contexts:
+  main: []

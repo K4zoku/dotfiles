@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Plain Text (Elixir)
+scope: text.elixir
+hidden: true
+file_extensions:
+  - ex
+  - exs
+  - eex
+  - html.eex
+  - html.leex
+contexts:
+  main: []

@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (CMake)
+scope: source.cmake
+hidden: true
+file_extensions:
+  - CMakeLists.txt
+  - cmake
+contexts:
+  main: []

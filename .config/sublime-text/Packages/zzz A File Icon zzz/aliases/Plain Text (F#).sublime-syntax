@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (F#)
+scope: source.fsharp
+hidden: true
+file_extensions:
+  - fs
+  - fsi
+  - fsx
+contexts:
+  main: []

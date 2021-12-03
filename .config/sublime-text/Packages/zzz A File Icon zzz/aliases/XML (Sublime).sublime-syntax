@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: XML (Sublime)
+scope: text.xml.sublime.snippet
+hidden: true
+file_extensions:
+  - sublime-snippet
+contexts:
+  main:
+    - include: scope:text.xml
+      apply_prototype: true

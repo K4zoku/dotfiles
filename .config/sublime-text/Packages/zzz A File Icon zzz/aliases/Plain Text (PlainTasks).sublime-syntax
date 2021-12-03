@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (PlainTasks)
+scope: text.todo
+hidden: true
+file_extensions:
+  - todo
+  - tasks
+  - todolist.txt
+contexts:
+  main: []

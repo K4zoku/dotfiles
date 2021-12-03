@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Protobuf)
+scope: source.proto
+hidden: true
+file_extensions:
+  - proto
+  - protodevel
+contexts:
+  main: []

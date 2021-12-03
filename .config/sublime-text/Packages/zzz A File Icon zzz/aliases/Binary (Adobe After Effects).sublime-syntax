@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Binary (Adobe After Effects)
+scope: binary.ae
+hidden: true
+file_extensions:
+  - aep
+  - aet
+contexts:
+  main: []

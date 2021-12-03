@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Cabal)
+scope: source.cabal
+hidden: true
+file_extensions:
+  - cabal
+  - cabal.project
+contexts:
+  main: []

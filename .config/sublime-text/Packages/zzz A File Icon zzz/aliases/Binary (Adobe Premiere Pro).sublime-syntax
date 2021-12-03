@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Binary (Adobe Premiere Pro)
+scope: binary.premiere
+hidden: true
+file_extensions:
+  - prel
+  - prproj
+  - psq
+contexts:
+  main: []

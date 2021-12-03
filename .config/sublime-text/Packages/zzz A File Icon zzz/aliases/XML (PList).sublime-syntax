@@ -1,0 +1,19 @@
+%YAML 1.2
+---
+name: XML (PList)
+scope: text.plist
+hidden: true
+file_extensions:
+  - plist
+  - hidden-tmLanguage
+  - hidden-tmTheme
+  - hidden-tmSnippet
+  - hidden-tmPreferences
+  - tmLanguage
+  - tmTheme
+  - tmSnippet
+  - tmPreferences
+contexts:
+  main:
+    - include: scope:text.xml
+      apply_prototype: true

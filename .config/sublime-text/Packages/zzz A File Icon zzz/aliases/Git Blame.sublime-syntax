@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Git Blame
+scope: text.git.blame
+hidden: true
+file_extensions:
+  - git-blame
+  - .gitblame
+contexts:
+  main: []

@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Coreboot)
+scope: source.cb
+hidden: true
+file_extensions:
+  - cb
+contexts:
+  main: []

@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (GraphQL)
+scope: source.graphql
+hidden: true
+file_extensions:
+  - graphql
+  - graphqls
+  - gql
+contexts:
+  main: []

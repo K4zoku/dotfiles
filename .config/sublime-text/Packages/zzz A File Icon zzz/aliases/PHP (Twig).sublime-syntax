@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: PHP (Twig)
+scope: text.html.twig
+hidden: true
+file_extensions:
+  - twig
+  - html.twig
+contexts:
+  main:
+    - include: scope:embedding.php
+      apply_prototype: true

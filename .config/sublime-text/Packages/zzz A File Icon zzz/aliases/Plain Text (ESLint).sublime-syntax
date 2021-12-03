@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (ESLint)
+scope: text.plain.eslint
+hidden: true
+file_extensions:
+  - .eslintcache
+contexts:
+  main: []

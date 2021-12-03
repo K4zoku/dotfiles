@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Sketch)
+scope: text.plain.sketch
+hidden: true
+file_extensions:
+  - sketch
+contexts:
+  main: []

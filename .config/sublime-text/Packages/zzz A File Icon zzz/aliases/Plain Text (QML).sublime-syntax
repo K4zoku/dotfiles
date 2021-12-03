@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (QML)
+scope: source.qml
+hidden: true
+file_extensions:
+  - qml
+  - qmlproject
+  - qmlproject.user
+contexts:
+  main: []

@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Binary (Microsoft Excel)
+scope: binary.excel
+hidden: true
+file_extensions:
+  - xls
+  - xlsx
+  - xlsm
+  - xlsb
+  - xlt
+contexts:
+  main: []

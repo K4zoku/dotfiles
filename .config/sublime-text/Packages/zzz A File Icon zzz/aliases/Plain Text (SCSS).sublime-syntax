@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (SCSS)
+scope: source.scss
+hidden: true
+file_extensions:
+  - scss
+contexts:
+  main: []

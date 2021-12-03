@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: UnitTest (JavaScript React)
+scope: source.jsx.unittest
+hidden: true
+file_extensions:
+  - spec.jsx
+  - test.jsx
+contexts:
+  main:
+    - include: scope:source.jsx
+      apply_prototype: true

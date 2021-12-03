@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (ColdFusion)
+scope: source.cfscript.cfc
+hidden: true
+file_extensions:
+  - cfc
+  - cfm
+  - cfml
+contexts:
+  main: []

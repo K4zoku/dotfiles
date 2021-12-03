@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Jade)
+scope: text.jade
+hidden: true
+file_extensions:
+  - jade
+contexts:
+  main: []

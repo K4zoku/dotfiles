@@ -1,0 +1,77 @@
+!! Colorscheme
+
+! special
+*.background: #fafafa
+*.foreground: #5b6673
+*.cursorColor: #ff6900
+
+! black
+*.color0: #000000
+*.color8: #323232
+
+! red
+*.color1: #ff3333
+*.color9: #ff6565
+
+! green
+*.color2: #86b200
+*.color10: #b8e532
+
+! yellow
+*.color3: #f19618
+*.color11: #ffc849
+
+! blue
+*.color4: #41a6d9
+*.color12: #73d7ff
+
+! magenta
+*.color5: #f07078
+*.color13: #ffa3aa
+
+! cyan
+*.color6: #4cbe99
+*.color14: #7ff0cb
+
+! white
+*.color7: #ffffff
+*.color15: #ffffff
+
+! URxvt Appearance
+*.font: xft:BlexMono Nerd Font Mono:style=Medium:size=10
+*.boldFont: xft:BlexMono Nerd Font Mono:style=Bold:size=10
+*.italicFont: xft:BlexMono Nerd Font Mono:style=Italic:size=10
+*.boldItalicfont: xft:BlexMono Nerd Font Mono:style=Bold Italic:size=10
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 80x24
+URxvt.internalBorder: 8
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1

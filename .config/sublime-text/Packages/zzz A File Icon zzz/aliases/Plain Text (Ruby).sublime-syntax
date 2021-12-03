@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (Ruby)
+scope: text.plain.ruby
+hidden: true
+file_extensions:
+  - .ruby-version
+  - .ruby-gemset
+  - .rspec
+contexts:
+  main: []

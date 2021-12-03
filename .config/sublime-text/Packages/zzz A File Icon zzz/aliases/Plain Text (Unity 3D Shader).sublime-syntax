@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Unity 3D Shader)
+scope: source.shader
+hidden: true
+file_extensions:
+  - cginc
+  - shader
+contexts:
+  main: []

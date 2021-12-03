@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Stata)
+scope: source.stata
+hidden: true
+file_extensions:
+  - do
+  - ado
+contexts:
+  main: []

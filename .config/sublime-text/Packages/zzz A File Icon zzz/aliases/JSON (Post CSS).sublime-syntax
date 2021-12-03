@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: JSON (Post CSS)
+scope: source.json.postcss
+hidden: true
+file_extensions:
+  - .postcssrc
+contexts:
+  main:
+    - include: scope:source.json
+      apply_prototype: true

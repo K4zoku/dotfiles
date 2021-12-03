@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: HTML (Angular JS)
+scope: text.html.angularjs
+hidden: true
+file_extensions:
+  - ng.html
+contexts:
+  main:
+    - include: scope:text.html.basic
+      apply_prototype: true

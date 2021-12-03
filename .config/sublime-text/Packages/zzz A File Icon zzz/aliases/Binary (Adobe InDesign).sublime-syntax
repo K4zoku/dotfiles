@@ -1,0 +1,14 @@
+%YAML 1.2
+---
+name: Binary (Adobe InDesign)
+scope: binary.indesign
+hidden: true
+file_extensions:
+  - indd
+  - indl
+  - indt
+  - indb
+  - inx
+  - idml
+contexts:
+  main: []

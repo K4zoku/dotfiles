@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (MEL)
+scope: source.mel
+hidden: true
+file_extensions:
+  - mel
+contexts:
+  main: []

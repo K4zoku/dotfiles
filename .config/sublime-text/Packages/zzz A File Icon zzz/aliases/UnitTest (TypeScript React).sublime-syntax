@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: UnitTest (TypeScript React)
+scope: source.tsx.unittest
+hidden: true
+file_extensions:
+  - spec.tsx
+  - test.tsx
+contexts:
+  main:
+    - include: scope:source.tsx
+      apply_prototype: true

@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: JSON (Terraform)
+scope: source.json.terraform
+hidden: true
+file_extensions:
+  - tfstate
+contexts:
+  main:
+    - include: scope:source.json
+      apply_prototype: true

@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (Nim)
+scope: source.nim
+hidden: true
+file_extensions:
+  - nim
+  - nims
+  - nimble
+contexts:
+  main: []

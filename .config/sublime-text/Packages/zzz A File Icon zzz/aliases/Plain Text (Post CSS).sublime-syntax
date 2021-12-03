@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Post CSS)
+scope: source.postcss
+hidden: true
+file_extensions:
+  - pcss
+  - postcss
+contexts:
+  main: []

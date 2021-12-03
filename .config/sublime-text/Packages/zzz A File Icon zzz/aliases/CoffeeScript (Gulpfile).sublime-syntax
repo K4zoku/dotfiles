@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: CoffeeScript (Gulpfile)
+scope: source.coffee.gulpfile
+hidden: true
+file_extensions:
+  - gulpfile.coffee
+contexts:
+  main:
+    - include: scope:source.coffee
+      apply_prototype: true

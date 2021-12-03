@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: JSON (Stylelint)
+scope: source.json.stylelint
+hidden: true
+file_extensions:
+  - .stylelintrc
+  - .stylelintrc.json
+contexts:
+  main:
+    - include: scope:source.json
+      apply_prototype: true

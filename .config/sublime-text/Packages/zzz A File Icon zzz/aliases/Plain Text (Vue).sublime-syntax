@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Vue)
+scope: text.html.vue
+hidden: true
+file_extensions:
+  - vue
+contexts:
+  main: []

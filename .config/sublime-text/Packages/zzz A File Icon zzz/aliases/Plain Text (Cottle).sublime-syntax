@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Cottle)
+scope: source.cottle
+hidden: true
+file_extensions:
+  - cottle
+contexts:
+  main: []
