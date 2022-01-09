@@ -1,0 +1,131 @@
+#######################
+# INDEPENDENT HOTKEYS #
+#######################
+
+# terminal
+super + Return
+    kitty
+
+# alternative terminal
+super + alt + Return
+    urxvt -sbg
+
+# file manager
+super + e
+    thunar
+
+# apps menu
+super + r
+    ${HOME}/.config/rofi/scripts/appsmenu.sh
+
+# task switcher
+alt + Tab
+    ${HOME}/.config/rofi/scripts/taskswitcher.sh
+
+# lock
+super + l
+    i3lock-fancy
+
+# reload sxhkd configuration files
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# power menu
+super + shift + q
+    "${HOME}/.config/rofi/scripts/powermenu.sh"
+
+# screenshot menu
+super + shift + Print
+    "${HOME}/.config/rofi/scripts/screenshot.sh"
+
+# capture fullscreen
+Print
+    "${HOME}/.scripts/shot" now
+
+# capture fullscreen with 5s delay
+Pause
+    "${HOME}/.scripts/shot" timer 5
+
+# capture active window
+super + Print
+    "${HOME}/.scripts/shot" active
+
+# capture window
+super + ctrl + Print
+    "${HOME}/.scripts/shot" window
+
+# capture retangular region
+super + shift + s
+    "${HOME}/.scripts/shot" region
+
+# change volume
+super + ctrl + v : {Left,Down,Up,Right,m}
+    "${HOME}/.scripts/change-volume" {down,down,up,up,mute}
+
+# change brightness
+super + ctrl + b : {Left,Down,Up,Right,o}
+    "${HOME}/.scripts/change-brightness" {down,down,up,up,optimal}
+
+# change resolution
+super + ctrl + d : {n,f}
+    "${HOME}/.scripts/change-resolution" {normal,fullhd}
+
+###################
+# BERRYWM HOTKEYS #
+###################
+
+# show key bindings
+super + slash
+    "${HOME}/.config/rofi/scripts/keybindings.sh" "${HOME}/.config/berry/sxhkdrc"
+
+# [berrywm] move
+super + ctrl + a : {Left,Down,Up,Right}
+    berryc window_move {-2 0, 0 2, 0 -2, 2 0}
+
+# [berrywm] resize
+super + ctrl + s : {Left,Down,Up,Right}
+    berryc window_resize {-2 0, 0 2, 0 -2, 2 0}
+
+# [berrywm] switch workspace
+super + {1-9}
+    berryc switch_workspace {0-9}
+
+# [berrywm] send to workspace
+super + shift + {1-9}
+    berryc send_to_workspace {0-9}
+
+# [berrywm] window monocle
+super + m
+    berryc window_monocle
+
+# [berrywm] toggle fullscreen
+super + f
+    berryc fullscreen
+
+# [berrywm] snap right
+super +  p
+    berryc snap_right
+
+# [berrywm] snap left
+super + o 
+    berryc snap_left
+
+# [berrywm] toggle decoration
+super + n
+    berryc toggle_decorations
+
+# [berrywm] cycle focus
+super + Tab
+    berryc cycle_focus
+
+# [berrywm] window close
+super + w
+    berryc window_close
+
+# [berrywm] window center
+super + c
+    berryc window_center
+
+# [berrywm] focus
+~button1
+    berryc pointer_focus

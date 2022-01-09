@@ -1,0 +1,68 @@
+#!/usr/bin/env sh
+
+################
+# LOAD PROFILE #
+################
+. "${HOME}/.profile"
+
+#########################
+# BERRYWM CONFIGURATION #
+#########################
+
+# Decoration
+berryc decorate_new false
+
+# Set decoration geometry
+berryc border_width          4
+berryc inner_border_width    0
+berryc title_height          0
+berryc edge_gap              8 8 48 8
+
+# Set decoration colors
+berryc focus_color           #131721
+berryc unfocus_color         #0e1419
+berryc inner_focus_color     #131721
+berryc inner_unfocus_color   #0e1419
+berryc text_focus_color      #e5e1cf
+berryc text_unfocus_color    #BFBDB6
+
+# Other options
+berryc set_font              "xft:Rubik:size=10:style=Bold"
+berryc draw_text             false
+berryc smart_place           true
+berryc edge_lock             true
+berryc focus_follows_pointer false
+
+# if reload, do not run app
+[ "${1}" = "reload" ] && exit 0
+
+#########################
+# APPLICATION AUTOSTART #
+#########################
+
+# fix cursor
+xsetroot -cursor_name left_ptr                                     &
+
+# hotkey daemon
+pgrep -x sxhkd          || sxhkd -c ~/.config/berry/sxhkdrc        &
+
+# compositor
+pgrep -x picom          || picom -b                                &
+
+# wallpaper
+feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
+
+# panel
+pgrep -x tint2          || tint2                                   &
+
+# notification daemon
+pgrep -x dunst          || dunst                                   &
+
+# input daemon
+pgrep -x ibus-daemon    || ibus-daemon -dxrR                       &
+
+# clipboard daemon
+pgrep -x xcmenu         || xcmenu --daemon                         &
+
+# chat client
+pgrep -x discord        || ping -c 1 discord.com && discord        &
