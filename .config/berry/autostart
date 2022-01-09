@@ -20,12 +20,12 @@ berryc title_height          0
 berryc edge_gap              48 8 8 8
 
 # Set decoration colors
-berryc focus_color           #131721
-berryc unfocus_color         #0e1419
-berryc inner_focus_color     #131721
-berryc inner_unfocus_color   #0e1419
-berryc text_focus_color      #e5e1cf
-berryc text_unfocus_color    #BFBDB6
+berryc focus_color           131721
+berryc unfocus_color         0E1419
+berryc inner_focus_color     131721
+berryc inner_unfocus_color   0E1419
+berryc text_focus_color      E5E1CF
+berryc text_unfocus_color    BFBDB6
 
 # Workspace options
 # berryc name_desktop 0 一
@@ -55,6 +55,7 @@ berryc draw_text             false
 berryc smart_place           true
 berryc edge_lock             true
 berryc focus_follows_pointer false
+berryc move_mask ctrl
 
 # if reload, do not run app
 [ "${1}" = "reload" ] && exit 0
