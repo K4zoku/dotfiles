@@ -1,0 +1,18 @@
+[
+    // Mouse 3 column select
+    {
+        "button": "button3",
+        "press_command": "drag_select",
+        "press_args": {"by": "columns"}
+    },
+    {
+        "button": "button3", "modifiers": ["ctrl"],
+        "press_command": "drag_select",
+        "press_args": {"by": "columns", "additive": true}
+    },
+    {
+        "button": "button3", "modifiers": ["alt"],
+        "press_command": "drag_select",
+        "press_args": {"by": "columns", "subtractive": true}
+    }
+]

@@ -1,0 +1,112 @@
+matrix:
+- name: settings
+  sources:
+  - '**/*.sublime-settings'
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - docs/src/dictionary/en-custom.txt
+    output: build/dictionary/settings.dic
+  pipeline:
+  - pyspelling.filters.cpp:
+      prefix: 'st'
+      group_comments: true
+      line_comments: false
+  - pyspelling.filters.context:
+      context_visible_first: true
+      escapes: \\[\\`~]
+      delimiters:
+      - open: (?P<open>`+)
+        content: .*?
+        close: (?P=open)
+      - open: (?s)^(?P<open>\s*~{3,})
+        content: .*?
+        close: ^(?P=open)$
+  - pyspelling.filters.url:
+
+- name: mkdocs
+  sources:
+  - site/**/*.html
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - docs/src/dictionary/en-custom.txt
+    output: build/dictionary/mkdocs.dic
+  pipeline:
+  - pyspelling.filters.html:
+      comments: false
+      attributes:
+      - title
+      - alt
+      ignores:
+      - code
+      - pre
+      - a.magiclink-compare
+      - a.magiclink-commit
+      - a.magiclink-issue
+      - span.keys
+      - .MathJax_Preview
+      - .md-nav__link
+      - .md-footer-custom-text
+      - .md-source__repository
+      - .headerlink
+      - .md-icon
+      - .md-footer-social__link
+  - pyspelling.filters.url:
+
+- name: markdown
+  sources:
+  - README.md
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - docs/src/dictionary/en-custom.txt
+    output: build/dictionary/mkdocs.dic
+  pipeline:
+  - pyspelling.filters.markdown:
+  - pyspelling.filters.html:
+      comments: false
+      attributes:
+      - title
+      - alt
+      ignores:
+      - code
+      - pre
+  - pyspelling.filters.url:
+
+- name: python
+  sources:
+  - "{st3,tests}/**/*.py|!**/png.py|!**/{coloraide,yaml,markdown,pygments,markupsafe,jinja2,pygments,pymdownx}/**"
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - docs/src/dictionary/en-custom.txt
+    output: build/dictionary/python.dic
+  pipeline:
+  - pyspelling.filters.python:
+      group_comments: True
+  - pyspelling.flow_control.wildcard:
+      allow:
+      - py-comment
+  - pyspelling.filters.context:
+      context_visible_first: true
+      delimiters:
+      # Ignore lint (noqa) and coverage (pragma) as well as shebang (#!)
+      - open: ^(?:(?:noqa|pragma)\b|!)
+        close: $
+      # Ignore Python encoding string -*- encoding stuff -*-
+      - open: ^ *-\*-
+        close: -\*-$
+  - pyspelling.filters.context:
+      context_visible_first: true
+      escapes: \\[\\`~]
+      delimiters:
+        - open: (?P<open>`+)
+          close: (?P=open)
+        - open: (?s)^(?P<open>\s*~{3,})
+          close: ^(?P=open)$
+  - pyspelling.filters.url:

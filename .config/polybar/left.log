@@ -1,0 +1,4 @@
+polybar|notice:  Parsing config file: /home/kazoku/.config/polybar/config
+sh: line 1: i3: command not found
+polybar|error: Disabling module "i3" (reason: Could not find socket: <empty>)
+polybar|error: No modules created

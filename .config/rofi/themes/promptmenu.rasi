@@ -1,0 +1,50 @@
+@import "shared/settings.rasi"
+
+* {
+    icon-font: "feather 24";
+    background-color: @bg;
+}
+
+window {
+    width: 200px;
+    border-radius: 8px;
+}
+
+mainbox {
+    children: [inputbar,listview];
+    padding: 5px 0px;
+}
+
+inputbar {
+    orientation: horizontal;
+    children: [prompt];
+    padding: 10px 0px;
+}
+
+prompt {
+    color: @bg-hover;
+    font: "Rubik Regular 12";
+    padding: 0px 70px 0px 40px;
+}
+
+listview {
+    columns: 2;
+    lines: 1;
+    children: [element-text];
+    padding: 10px 15px 10px -5px;
+}
+
+element-text {
+    background-color: @bg-semilight;
+    horizontal-align: 0.5;
+    padding: 20px 10px 10px 10px;
+    font: @icon-font;
+    border-radius: 10px;
+    color: @fg-unhover;
+    cursor: pointer;
+}
+
+element-text selected {
+    background-color: @bg-hover;
+    color: @fg-hover;
+}

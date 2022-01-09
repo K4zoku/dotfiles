@@ -1,0 +1,8 @@
+polybar|notice:  Parsing config file: /home/kazoku/.config/polybar/config
+polybar|notice:  pulseaudio: using default sink alsa_output.pci-0000_00_1b.0.analog-stereo
+polybar|notice:  Loaded font "Fira Code:style=Regular:size=11" (name=Fira Code, offset=3, file=/usr/share/fonts/TTF/FiraCode-Regular.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Brands Regular:style=Regular:size=11" (name=Font Awesome 5 Brands, offset=3, file=/usr/share/fonts/TTF/fa-brands-400.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Solid:style=Solid:size=11" (name=Font Awesome 5 Free, offset=3, file=/usr/share/fonts/TTF/fa-solid-900.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Regular:style=Regular:size=11" (name=Font Awesome 5 Free, offset=3, file=/usr/share/fonts/TTF/fa-regular-400.ttf)
+polybar|error: Failed to restack bar window
+polybar|warn:  Systray selection already managed (window=0x0c00015)

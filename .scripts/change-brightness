@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# Load Global Variable
+source "${HOME}/.global-var"
+
+notification_id=6519
+
+# Brightness handler using brightnessctl
+
+current_brightness() {
+    brightnessctl i | grep '%' | awk -F'(' '{print $2}' | awk -F'%' '{print $1}'
+}
+
+notify() {
+    brightness=$(current_brightness)
+
+    if   [ "${brightness}" -eq 0 ];   then
+        icon="${ICONDIR}/brightness-off"
+    elif [ "${brightness}" -lt 10 ];  then
+        icon="${ICONDIR}/brightness-low"
+    elif [ "${brightness}" -lt 30 ];  then
+        icon="${ICONDIR}/brightness-low"
+    elif [ "${brightness}" -lt 70 ];  then
+        icon="${ICONDIR}/brightness-medium"
+    elif [ "${brightness}" -lt 100 ]; then
+        icon="${ICONDIR}/brightness-high"
+    else
+        icon="${ICONDIR}/brightness-full"
+    fi
+
+    dunstify -i "${icon}.png" -t 2000 -h "int:value:${brightness}" -r "${notification_id}" "Brightness: ${brightness}%"
+}
+
+case $2 in
+    ''|*[!0-9]*)
+    step=1
+    ;;
+    *)
+    step=$2
+    ;;
+esac
+
+case $1 in
+    up)
+	brightnessctl set "${step}%+" > /dev/null
+	;;
+    down)
+    brightnessctl set "${step}%-" > /dev/null
+	;;
+    optimal)
+	brightnessctl set 25% > /dev/null
+	;;
+esac
+
+notify

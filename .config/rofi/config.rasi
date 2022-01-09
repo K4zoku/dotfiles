@@ -1,0 +1,11 @@
+/** Basic config file **/
+
+configuration {
+  modi: [window,drun,run];
+  show-icons: true;
+  icon-theme: "Papirus";
+  terminal: "kitty";
+  matching: "regex";
+  me-select-entry: "MouseSecondary";
+  me-accept-entry: "MousePrimary";
+}

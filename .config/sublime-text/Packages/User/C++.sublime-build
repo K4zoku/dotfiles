@@ -1,0 +1,22 @@
+{
+	"shell_cmd": "g++ \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+	"working_dir": "${file_path}",
+	"selector": "source.cc source.cpp",
+
+	"variants":
+	[
+		{
+			"name": "Build",
+			"shell_cmd": "g++ -Wall -Wextra -g -O2 -std=gnu++17 -static '${file}' -o '${file_path}/${file_base_name}' -lm"
+		},
+		{
+			"name": "Run",
+			"shell_cmd": "[ -f '${file_path}/${file_base_name}' ] && kitty runner '${file_path}/${file_base_name}'"
+		}, 
+		{
+			"name": "Build & Run",
+			"shell_cmd": "g++ -Wall -Wextra -g -O2 -std=gnu++17 -static '${file}' -o '${file_path}/${file_base_name}' -lm && kitty --start-as normal --directory '${file_path}' runner './${file_base_name}'"
+		}
+	]
+}

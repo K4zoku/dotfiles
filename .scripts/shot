@@ -1,0 +1,284 @@
+#!/usr/bin/env sh
+
+##########################################################################################
+#                                                                                        #
+#  ███████╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗███████╗██╗  ██╗ ██████╗ ████████╗  #
+#  ██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝████╗  ██║██╔════╝██║  ██║██╔═══██╗╚══██╔══╝  #
+#  ███████╗██║     ██████╔╝█████╗  █████╗  ██╔██╗ ██║███████╗███████║██║   ██║   ██║     #
+#  ╚════██║██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║╚════██║██╔══██║██║   ██║   ██║     #
+#  ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║███████║██║  ██║╚██████╔╝   ██║     #
+#  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝     #
+#                                                                                        #
+#           ██╗   ██╗██╗  ████████╗██╗██╗     ██╗████████╗██╗███████╗███████╗            #
+#           ██║   ██║██║  ╚══██╔══╝██║██║     ██║╚══██╔══╝██║██╔════╝██╔════╝            #
+#           ██║   ██║██║     ██║   ██║██║     ██║   ██║   ██║█████╗  ███████╗            #
+#           ██║   ██║██║     ██║   ██║██║     ██║   ██║   ██║██╔══╝  ╚════██║            #
+#           ╚██████╔╝███████╗██║   ██║███████╗██║   ██║   ██║███████╗███████║            #
+#            ╚═════╝ ╚══════╝╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝   ╚═╝╚══════╝╚══════╝            #
+#                                                                                        #
+# Authors:                                                                               #
+#   K4zoku                                                                               #
+#   NNB                                                                                  #
+# Dependency:                                                                            #
+#   dunst                                  a simple but powerful notification server     #
+#   feh or pqiv                            image viewer, used for region capture         #
+#   maim                                   screen capture (x11)                          #
+#   slop                                   region selection (x11)                        #
+#   xclip                                  clipboard (x11)                               #
+#   xdotool or xwminfo or xprop & xdotool  window selection (x11)                        #
+#   xdotool or xprop                       get active window (x11)                       #
+#   grim                                   screen capture (wayland)                      #
+#   slurp                                  region selection (wayland)                    #
+#   wl-clipboard                           clipboard (wayland)                           #
+#   swaywm                                 window selection, get active window (wayland) #
+#   jq                                     optional, used to parse json (swaymsg, berry) #
+#                                                                                        #
+##########################################################################################
+
+#################
+# CONFIGURATION #
+#################
+SCREENSHOT_SAVE_PATH="${HOME}/Pictures/Screenshots"
+
+SCREENSHOT_FILENAME_FORMAT="Screenshot_%d%m%y_%H%M%S.png"
+
+SCREENSHOT_NOTI_ICON="camera"
+
+SCREENSHOT_TEMP_DIR="/tmp"
+
+# SCREENSHOT_IMAGE_VIEWER="pqiv"
+SCREENSHOT_IMAGE_VIEWER="feh"
+
+SCREENSHOT_IMAGE_VIEWER_ARGS="--fullscreen"
+
+# 1: xdotool
+# 2: xwminfo
+# 3: xprop + xdotool search
+SCREENSHOT_WINDOW_PICKER=2
+
+# 1: xdotool
+# 2: xprop
+SCREENSHOT_ACTIVE_WINDOW_PICKER=2
+
+####################
+# INTERAL VARIABLE #
+####################
+SCREENSHOT_FILENAME="$(date "+${SCREENSHOT_FILENAME_FORMAT}")"
+
+SCREENSHOT="${SCREENSHOT_TEMP_DIR}/${SCREENSHOT_FILENAME}"
+
+SCREENSHOT_TIMER_VAR="${SCREENSHOT_TEMP_DIR}/su-timer-var"
+
+#############
+# FUNCTIONS #
+#############
+abort() {
+    dunstify -i "${SCREENSHOT_NOTI_ICON}" "Screenshot" "Aborted" &
+}
+
+cancel() {
+    dunstify -i "${SCREENSHOT_NOTI_ICON}" "Screenshot" "Cancelled" &
+}
+
+shot() {
+    if [ ! -z "${WAYLAND_DISPLAY}" ]; then
+        grim "${SCREENSHOT}"
+    else
+        maim "${SCREENSHOT}"
+    fi
+}
+
+hex2dec() {
+    read -r hex
+    printf "%d" "${hex}"
+}
+
+xgetwindowid() {
+    ######################################
+    # using xprop on berrywm             #
+    # very accurate but command too long #
+    # and it's only available on berrywm #
+    ######################################
+    [ "${DESKTOP_SESSION}" = "berry" ] &&
+    # json_status = true
+    xprop BERRY_WINDOW_STATUS | cut -d' ' -f3 | cut -c2- | head -c-2 | tr -d "\134" | jq -r .window | hex2dec &&
+    # json_status = false
+    # xprop BERRY_WINDOW_STATUS | cut -d'"' -f2 | cut -d',' -f1 | hex2dec &&
+    exit 0 ||
+
+    ########################################
+    # using xdotool                        #
+    # most accurate but it has ugly cursor #
+    ########################################
+    [ "${SCREENSHOT_WINDOW_PICKER}" = "1" ] &&
+    xdotool selectwindow &&
+    exit 0 ||
+
+    ##################################
+    # using xwininfo                 #
+    # accurrate, looking good cursor #
+    # but not themed                 #
+    ##################################
+    [ "${SCREENSHOT_WINDOW_PICKER}" = "2" ] &&
+    xwininfo -int | grep "Window id" | cut -d' ' -f4 &&
+    exit 0 ||
+
+    #########################################
+    # using xprop + xdotool                 #
+    # not accurate but it has themed cursor #
+    #########################################
+    [ "${SCREENSHOT_WINDOW_PICKER}" = "3" ] &&
+    xdotool search --onlyvisible --limit 1 --pid "$(xprop _NET_WM_PID | cut -d' ' -f3)" ||
+    exit 1 # last statment always exit 1
+}
+
+xgetactivewindow() {
+    [ "${SCREENSHOT_ACTIVE_WINDOW_PICKER}" = "1" ] &&
+    xdotool getactivewindow &&
+    exit 0 ||
+
+    [ "${SCREENSHOT_ACTIVE_WINDOW_PICKER}" = "2" ] &&
+    xprop -root 32c '\t$0' _NET_ACTIVE_WINDOW | cut -f2 ||
+    exit 1
+}
+
+wlgetwindow() {
+    swaymsg 2>&1 >/dev/null &&
+    swaymsg --type get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
+    # TODO: Support for another wayland wm
+}
+
+wlgetactivewindow() {
+    swaymsg 2>&1 >/dev/null &&
+    swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"'
+    # TODO: Support for another wayland wm
+}
+
+shot_window() {
+    if [ ! -z "${WAYLAND_DISPLAY}" ]; then
+        grim -g "$(wlgetwindow)" "${SCREENSHOT}"
+    else
+        maim -B -u -i "$(xgetwindowid)" "${SCREENSHOT}"
+    fi
+}
+
+shot_active() {
+    if [ ! -z "${WAYLAND_DISPLAY}" ]; then
+        grim -g "$(wlgetactivewindow)" "${SCREENSHOT}"
+    else
+        maim -B -u -i "$(xgetactivewindow)" "${SCREENSHOT}"
+    fi
+}
+
+fullscreen_fix() {
+    # fixed fullscreen for berrywm
+    [ "${DESKTOP_SESSION}" = "berry" ] && berryc fullscreen
+    # TODO: add fullscreen fix for bspwm and other wm (if I has time to test)
+}
+
+shot_region() {
+    shot
+    "${SCREENSHOT_IMAGE_VIEWER}" ${SCREENSHOT_IMAGE_VIEWER_ARGS} "${SCREENSHOT}" &
+    iv_pid="$!"
+    # wait for image viewer to show
+    sleep 0.5
+    fullscreen_fix
+    if [ ! -z "${WAYLAND_DISPLAY}" ]; then
+        grim -g "$(slurp)" "${SCREENSHOT}"
+    else
+        maim -s -t 0 -u "${SCREENSHOT}" 2>/dev/null
+    fi
+    result="$?"
+    [ "${result}" = 0 ] || abort
+    kill "${iv_pid}"
+    return "${result}"
+}
+
+save() {
+    if [ ! -z "${WAYLAND_DISPLAY}" ]; then
+        wl-copy --type image/png < "${SCREENSHOT}"
+    else
+        xclip -in "${SCREENSHOT}" -selection clipboard -target image/png
+    fi
+    action="$(dunstify -i "${SCREENSHOT}" "Screenshot" "Copied to clipboard" --action="save,save")"
+    if [ "${action}" = "save" ]; then
+        [ -f "${SCREENSHOT_SAVE_PATH}" ] ||
+        mkdir -p "${SCREENSHOT_SAVE_PATH}" &&
+        mv "${SCREENSHOT}" "${SCREENSHOT_SAVE_PATH}"
+        action="$(dunstify -i "${SCREENSHOT_SAVE_PATH}/${SCREENSHOT_FILENAME}" "Screenshot" "Saved as \n${SCREENSHOT_SAVE_PATH}/${SCREENSHOT_FILENAME}" --action="open,open")"
+        [ "${action}" = "open" ] && xdg-open "${SCREENSHOT}"
+    else
+        rm "${SCREENSHOT}"
+    fi
+}
+
+countdown() {
+    action=$(dunstify -t 1010 -r 5607 -i "${SCREENSHOT_NOTI_ICON}" "Screenshot" "In ${timeleft}s" --action="hide,hide")
+    [ "${action}" = "2" ]    && exit=1 ||
+    [ "${action}" = "hide" ] && hide=1
+    printf "%d %d" "${hide}" "${exit}" > "${SCREENSHOT_TIMER_VAR}"
+}
+
+clean_timer() {
+    rm -f "${SCREENSHOT_TIMER_VAR}"
+    return 0
+}
+
+timer() {
+    case "$1" in ""|*[!0-9]*) return 1;; esac
+    timeout="$1"
+    timeleft="${timeout}"
+    hide=0
+    exit=0
+    [ -f "${SCREENSHOT_TIMER_VAR}" ] || touch "${SCREENSHOT_TIMER_VAR}"
+    last="$(date +%s%N)"
+    while [ "${timeleft}" -ge 0 ]; do
+        if [ "${timeleft}" -gt 1 ] && [ "${hide:-0}" = 0 ]; then
+            read -r hide exit < "${SCREENSHOT_TIMER_VAR}"
+            if [ "${exit}" = 1 ]; then
+                cancel
+                break
+            fi
+        fi
+        # Preference: https://www.gafferongames.com/post/fix_your_timestep/
+        now="$(date +%s%N)"
+        if [ "${timeleft}" -eq "${timeout}" ] || [ "$((now - last))" -ge 1000000000 ]; then
+            [ "${timeleft}" -gt 1 ] && [ "${hide:-0}" = 0 ] && countdown &
+            timeleft=$((timeleft - 1))
+            last="$(date +%s%N)"
+        fi
+    done
+    clean_timer
+}
+
+########
+# MAIN #
+########
+__name="$(basename "$0")"
+__usage="
+Usage: ${__name}
+    or ${__name} DELAY
+    or ${__name} ACTION [delay]
+
+Available action:
+    help            Show this help
+    now             Capture fullscreen
+    timer           Delayed capture fullscreen
+    window          Capture selected window
+    active          Capture active window
+    region          Capture retangular region
+
+"
+
+case "$1" in
+    ""|"now") shot                      || exit 1 ;;
+    *[0-9]*)  timer "$1" && shot        || exit 1 ;;
+    "timer")  timer "$2";   shot        || exit 1 ;;
+    "window") timer "$2";   shot_window || exit 1 ;;
+    "active") timer "$2";   shot_active || exit 1 ;;
+    "region") timer "$2";   shot_region || exit 0 ;; # do not save if user aborted
+    "help")   printf "%s" "${__usage}"  && exit 0 ;;
+    *)        printf "%s" "${__usage}"  && exit 1 ;;
+esac
+
+save &

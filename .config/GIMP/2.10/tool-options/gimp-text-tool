@@ -1,0 +1,9 @@
+# GIMP gimp-text-tool options
+
+(foreground (color-rgb 0.0078431377187371254 0.0078431377187371254 0.0078431377187371254))
+(palette "Standard")
+(font "AajaxSurrealFreak")
+(font-size 24)
+(justify center)
+
+# end of gimp-text-tool options

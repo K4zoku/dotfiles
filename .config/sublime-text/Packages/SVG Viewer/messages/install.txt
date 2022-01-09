@@ -1,0 +1,24 @@
+     ______     ______  __     ___                        
+    / ___\ \   / / ___| \ \   / (_) _____      _____ _ __ 
+    \___ \\ \ / / |  _   \ \ / /| |/ _ \ \ /\ / / _ \ '__|
+     ___) |\ V /| |_| |   \ V / | |  __/\ V  V /  __/ |   
+    |____/  \_/  \____|    \_/  |_|\___| \_/\_/ \___|_|   
+
+   Sublime Text 3 plugin, for viewing SVG files as pictures
+
+
+Thanks for installing SVG Viewer. Now you can only use the online mode.
+We recommend using offline mode, so install one of the supported converters
+and change `force_offline_mode` to `true` in the settings.
+
+By default we support these converters:
+
+        CairoSVG (https://cairosvg.org)
+        Inkscape (https://inkscape.org)
+        ImageMagick (https://imagemagick.org)
+        SVGExport (https://github.com/shakiba/svgexport)
+
+But you can add another converter, by adding command to converters.json file
+(Preferences -> SVG Viewer -> Converters – Edit)
+
+For more details see https://github.com/YariKartoshe4ka/sublime-svg-viewer

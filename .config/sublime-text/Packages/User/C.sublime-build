@@ -1,0 +1,22 @@
+{
+	"shell_cmd": "gcc \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+	"working_dir": "${file_path}",
+	"selector": "source.c",
+
+	"variants":
+	[
+		{
+			"name": "Build",
+			"shell_cmd": "gcc -Wall -Wextra -g -O2 -std=gnu11 -static '${file}' -o '${file_path}/${file_base_name}' -lm"
+		},
+		{
+			"name": "Run",
+			"shell_cmd": "[ -f '${file_path}/${file_base_name}' ] && kitty runner '${file_path}/${file_base_name}'"
+		}, 
+		{
+			"name": "Build & Run",
+			"shell_cmd": "gcc -Wall -Wextra -g -O2 -std=gnu11 -static '${file}' -o '${file_path}/${file_base_name}' -lm && kitty --start-as normal --directory '${file_path}' runner './${file_base_name}'"
+		}
+	]
+}

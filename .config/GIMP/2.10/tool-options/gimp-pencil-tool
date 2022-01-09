@@ -1,0 +1,13 @@
+# GIMP gimp-pencil-tool options
+
+(foreground (color-rgb 0.0078431377187371254 0.0078431377187371254 0.0078431377187371254))
+(brush "2. Hardness 025")
+(dynamics "Dynamics Off")
+(gradient "Custom")
+(palette "Standard")
+(brush-size 333)
+(brush-spacing 0.080000000000000002)
+(brush-hardness 0.83999999999999997)
+(brush-force 0.40999999999999998)
+
+# end of gimp-pencil-tool options

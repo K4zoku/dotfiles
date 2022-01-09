@@ -1,0 +1,1 @@
+{"dependencies": [], "description": "Sublime Text Plugin that provides a configurable command and popup for folding code based on syntax", "version": "2.4.0", "platforms": ["*"], "url": "https://github.com/jamalsenouci/sublimetext-syntaxfold", "sublime_text": ">=3000"}

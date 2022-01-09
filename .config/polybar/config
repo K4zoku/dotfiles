@@ -1,0 +1,155 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[global]
+pseudo-transparency = false
+
+[colors]
+bg = #80343a40
+
+primary = #81A1C1
+secondary = #5E81AC
+
+redish = #BF616A
+yellowish = #EBCB8B
+greenish = #A3BE8C
+
+
+[bar/left]
+width=32%
+height=30
+offset-x=10
+offset-y=5
+background=${colors.bg}
+foreground=#fff
+font-0="Fira Code:style=Regular:size=11;3"
+font-1="Font Awesome 5 Brands Regular:style=Regular:size=11;3"
+font-2="Font Awesome 5 Free Solid:style=Solid:size=11;3"
+font-3="Font Awesome 5 Free Regular:style=Regular:size=11;3"
+line-size=2
+padding=1
+modules-center=i3
+override-redirect=true
+wm-restack=i3
+
+[bar/middle]
+width=22%
+height=30
+offset-x=39%
+offset-y=5
+background=${colors.bg}
+foreground=#fff
+font-0="Fira Code:style=Regular:size=10;3"
+font-1="Font Awesome 5 Brands Regular:style=Regular:size=10;2"
+font-2="Font Awesome 5 Free Solid:style=Solid:size=10;2"
+font-3="Font Awesome 5 Free Regular:style=Regular:size=10;2"
+line-size=2
+wm-name="polybar-middle"
+padding=2
+modules-center=music
+override-redirect=true
+wm-restack=i3
+
+[bar/right]
+width=32%:+10
+height=30
+offset-x=68%:-10
+offset-y=5
+background=${colors.bg}
+foreground=#fff
+padding=2
+font-0="Fira Code:style=Regular:size=11;3"
+font-1="Font Awesome 5 Brands Regular:style=Regular:size=11;3"
+font-2="Font Awesome 5 Free Solid:style=Solid:size=11;3"
+font-3="Font Awesome 5 Free Regular:style=Regular:size=11;3"
+module-margin-right=2
+modules-left=date pulseaudio tilewindow caffeinate
+tray-offset-x = -10
+tray-position=right
+tray-background = ${colors.bg}
+override-redirect=true
+wm-restack=i3
+
+[module/music]
+type = custom/script
+tail = true
+;format-prefix = ""
+format = <label>
+exec = ~/.config/scripts/polybar/music.py
+
+[module/date]
+type=internal/date
+date="%b %d"
+time="%H:%M"
+label =  %date%   %time%
+label-font = 0
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+;
+
+format = <label-state>
+
+label-focused = %icon%
+label-focused-background = #284862
+label-focused-foreground = #ffffff
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+label-visible = %icon%
+label-visible-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c20
+label-urgent-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-muted = %{F#cccccc}<label-muted>%{F-}
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+click-right = pavucontrol
+
+[module/caffeinate]
+type = custom/script
+exec=~/.config/scripts/polybar/caffeinate/tail.sh
+tail=true
+
+[module/tilewindow]
+type = custom/text
+content = 
+click-left = ~/.config/scripts/polybar/set_rules.py -t
+click-right = ~/.config/scripts/polybar/set_rules.py -w

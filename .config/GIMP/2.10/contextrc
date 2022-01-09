@@ -1,0 +1,15 @@
+# GIMP user context
+
+(tool "gimp-rotate-tool")
+(paint-info "gimp-paintbrush")
+(foreground (color-rgb 0.0078431377187371254 0.0078431377187371254 0.0078431377187371254))
+(brush "2. Hardness 025")
+(dynamics "Dynamics Off")
+(mybrush "100% Opaque")
+(pattern "Pine")
+(gradient "Custom")
+(palette "Standard")
+(font "AajaxSurrealFreak")
+(tool-preset "Core Pointer")
+
+# end of user context

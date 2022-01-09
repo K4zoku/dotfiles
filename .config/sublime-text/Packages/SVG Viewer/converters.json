@@ -1,0 +1,6 @@
+{
+    "cairosvg": "cairosvg \"{name}\" -o \"{out}\" -d {dpi}",
+    "inkscape": "inkscape --export-type=png \"{name}\" -o \"{out}\" -d {dpi}",
+    "imagemagick": "convert -density {dpi} \"{name}\" \"{out}\"",
+    "svgexport": "svgexport \"{name}\" \"{out}\""
+}

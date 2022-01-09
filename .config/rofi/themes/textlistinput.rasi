@@ -1,0 +1,67 @@
+@import "shared/settings.rasi"
+
+* {
+    background-color: @bg;
+    font: "Plex Code Pro SemiBold 10";
+}
+
+mainbox {
+    background-color: @bg;
+}
+
+window {
+  width: 700px;
+  height: 520px;
+  border-radius: 6px;
+}
+
+inputbar {
+    padding: 0px 0px 0px 0px;
+    background-color: transparent;
+    children: [entry];
+    padding: 50px 0px;
+    background-image: @launcher-header;
+}
+
+entry {
+    background-color: @bg-light;
+    padding: 5px;
+    margin: 0px 200px;
+    horizontal-align: 0.5;
+    color: @fg;
+    border-radius: 5px;
+    placeholder: "Search";
+    placeholder-color: #b3b7bd;
+}
+
+listview {
+    background-color:               @bg;
+    columns:                        1;
+    spacing:                        0;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+element {
+    orientation: horizontal;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: inherit;
+}
+
+element selected {
+    background-color: @bg-hover;
+}
+
+element-text {
+    vertical-align: 0.5;
+    color: @fg;
+    background-color: transparent;
+    padding: 10px 5px;
+    cursor: inherit;
+}
+
+element-text selected {
+    color: @fg-hover;
+}

@@ -1,0 +1,58 @@
+#!/usr/bin/env sh
+
+hex2rgb() {
+	read -r hex
+	hex="$(echo $hex | cut -c2-)"
+	# echo $hex
+	local r="$(echo $hex | cut -c-2)"
+	local g="$(echo $hex | cut -c3-4)"
+	local b="$(echo $hex | cut -c5-6)"
+	# echo $r $g $b
+	printf "%d;%d;%d" "0x${r}" "0x${g}" "0x${b}"
+}
+# Foreground: \e[38;2
+# Background: \e[48;2
+ACCENT_COLOR="$(xrdb -get color4 | hex2rgb)"
+NORMAL_COLOR="$(xrdb -get foreground | hex2rgb)"
+
+fgcolor() {
+	read -r rgb
+	printf "\e[38;2;%sm" "${rgb}"
+}
+
+print() {
+	[ -z "${2}" ] || printf "${bold}%s%-10s${reset} %s%s\n" "${accent}" "${1:-NULL}" "${normal}" "${2}"
+}
+
+reset="\e[0m"
+bold="\e[1m"
+
+accent="$(echo "${ACCENT_COLOR}" | fgcolor)"
+normal="$(echo "${NORMAL_COLOR}" | fgcolor)"
+
+art="${accent}      /\\
+     /  \\
+    /\\   \\
+${normal}   /      \\
+  /   ,,   \\
+ /   |  |  -\\
+/_-''    ''-_\\"
+
+[ "${1}" = "art" ] && printf "${bold}%s${reset}\n" "${art}" && exit 0
+
+neofetch=$(neofetch --stdout)
+os=" arch linux"
+uptime="$(echo "${neofetch}" | grep Uptime | cut -f2)"
+terminal="$(echo "${neofetch}" | grep Terminal | cut -f2)"
+shell="$(echo "${neofetch}" | grep Shell | cut -f2)"
+wm="$(echo "${neofetch}" | grep WM | cut -f2)"
+theme="$(echo "${neofetch}" | grep Theme | cut -f2)"
+icons="$(echo "${neofetch}" | grep Icons | cut -f2)"
+
+print "OS" " ${os}"
+print "Uptime" " ${uptime}"
+print "Terminal" "  kitty"
+print "Shell" " ${shell}"
+print "WM" "缾${wm}"
+print "Theme" " ${theme}"
+print "Icons" " ${icons}"

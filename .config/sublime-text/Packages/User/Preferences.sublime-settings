@@ -1,10 +1,25 @@
 {
-	"font_face": "BlexMono Nerd Font Mono Medium",
+	"font_face": "Plex Code Pro Medium",
 	"font_size": 10,
-	"theme": "ayu-light.sublime-theme",
+	"theme": "ayu-dark.sublime-theme",
+	"caret_style": "smooth",
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+	"inactive_sheet_dimming": false,
+	"bold_folder_labels": true,
+	"fallback_encoding": "UTF-8",
+	"shift_tab_unindent": true,
+	"drag_text": false,
+	"show_line_endings": true,
+	"always_prompt_for_file_reload": true,
+	"hardware_acceleration": "opengl",
+	"preview_on_click": "only_left",
+	"trim_trailing_white_space_on_save": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"draw_white_space": ["selection", "trailing", "isolated"],
+	"highlight_line": true,
+	"draw_minimap_border": true,
 	"ignored_packages":
 	[
 		"Vintage",
 	],
-	"color_scheme": "ayu-light.sublime-color-scheme",
 }

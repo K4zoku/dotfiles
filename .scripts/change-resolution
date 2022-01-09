@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case $1 in
+	normal)
+	xrandr --output LVDS-1 --panning 1366x768 --scale 1x1
+	;;
+	fullhd)
+	xrandr --output LVDS-1 --panning 1920x1080 --scale 1.406x1.406
+	;;
+esac

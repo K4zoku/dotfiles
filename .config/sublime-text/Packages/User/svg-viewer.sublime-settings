@@ -1,0 +1,11 @@
+{
+	"offline":
+	{
+		"engine": "inkscape",
+	},
+	"online":
+	{
+		"engine": "inkscape",
+		"keys_list": "https://raw.githubusercontent.com/YariKartoshe4ka/sublime-svg-viewer-api-keys/master/keys.txt",
+	},
+}

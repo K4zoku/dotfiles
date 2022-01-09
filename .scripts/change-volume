@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Load Global Variable
+source "${HOME}/.profile"
+
+notification_id=701
+
+# Audio volume changer using alsa mixer
+
+current_volume() {
+    amixer -D pulse get Master | grep '%' | head -n 1 | awk -F'[' '{print $2}' | awk -F'%' '{print $1}'
+}
+
+check_mute() {
+    amixer -D pulse get Master | grep '%' | grep -oE '[^ ]+$' | grep off
+}
+
+notify() {
+    volume=$(current_volume)
+
+    if   [ "${volume}" -eq 0 ] || check_mute; then
+        icon="${CUSTOM_ICONS_DIRECTORY}/volume-muted"
+    elif [ "${volume}" -lt 10 ];              then
+        icon="${CUSTOM_ICONS_DIRECTORY}/volume-low"
+    elif [ "${volume}" -lt 30 ];              then
+        icon="${CUSTOM_ICONS_DIRECTORY}/volume-low"
+    elif [ "${volume}" -lt 70 ];              then
+        icon="${CUSTOM_ICONS_DIRECTORY}/volume-medium"
+    else
+        icon="${CUSTOM_ICONS_DIRECTORY}/volume-high"
+    fi
+
+    dunstify -i "$icon.png" -t 2000 -h "int:value:${volume}" -r "${notification_id}" "Volume" "${volume}%"
+}
+
+case $2 in
+    ''|*[!0-9]*)
+    step=5
+    ;;
+    *)
+    step=$2
+    ;;
+esac
+
+case $1 in
+    up)
+	amixer -D pulse set Master on > /dev/null
+	amixer -D pulse sset Master ${step}%+ > /dev/null
+	;;
+    down)
+	amixer -D pulse set Master on > /dev/null
+	amixer -D pulse sset Master ${step}%- > /dev/null
+	;;
+    mute)
+	amixer -D pulse set Master 1+ toggle > /dev/null
+	;;
+esac
+
+notify
