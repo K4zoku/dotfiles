@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Reach)
-scope: source.rsh
-hidden: true
-file_extensions:
-  - rsh
-contexts:
-  main: []

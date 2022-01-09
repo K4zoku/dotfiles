@@ -1,1 +1,0 @@
-"""HSL color class."""

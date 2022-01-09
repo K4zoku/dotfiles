@@ -1,1 +1,0 @@
-"""HWB color class."""

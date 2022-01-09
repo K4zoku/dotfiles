@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Liquid)
-scope: text.html.liquid
-hidden: true
-file_extensions:
-  - liquid
-contexts:
-  main: []

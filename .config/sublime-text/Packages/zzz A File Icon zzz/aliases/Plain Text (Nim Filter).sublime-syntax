@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Nim Filter)
-scope: source.nim_filter
-hidden: true
-file_extensions:
-  - nimf
-contexts:
-  main: []

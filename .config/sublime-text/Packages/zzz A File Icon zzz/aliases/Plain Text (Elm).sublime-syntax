@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Elm)
-scope: source.elm
-hidden: true
-file_extensions:
-  - elm
-contexts:
-  main: []

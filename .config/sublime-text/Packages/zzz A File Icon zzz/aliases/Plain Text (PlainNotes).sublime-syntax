@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (PlainNotes)
-scope: text.html.markdown.note
-hidden: true
-file_extensions:
-  - note
-contexts:
-  main: []

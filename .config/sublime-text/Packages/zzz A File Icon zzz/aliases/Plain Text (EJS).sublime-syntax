@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (EJS)
-scope: text.ejs
-hidden: true
-file_extensions:
-  - ejs
-contexts:
-  main: []

@@ -1,1 +1,0 @@
-"""Lch color class."""

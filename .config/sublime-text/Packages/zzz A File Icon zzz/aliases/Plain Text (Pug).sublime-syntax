@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Pug)
-scope: text.pug
-hidden: true
-file_extensions:
-  - pug
-contexts:
-  main: []

@@ -1,1 +1,0 @@
-{"url": "https://packagecontrol.io/packages/SVG Viewer", "dependencies": [], "version": "1.1.0", "platforms": ["*"], "sublime_text": ">=3000", "description": "Sublime Text 3 plugin for viewing SVG files as pictures"}

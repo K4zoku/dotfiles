@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Genie)
-scope: source.genie
-hidden: true
-file_extensions:
-  - gs
-contexts:
-  main: []

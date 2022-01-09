@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Gerber fabrication files)
-scope: text.plain.pcb
-hidden: true
-file_extensions:
-  - pcb
-contexts:
-  main: []

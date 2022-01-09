@@ -1,9 +1,0 @@
-%YAML 1.2
----
-name: Plain Text (Mint)
-scope: source.mint
-hidden: true
-file_extensions:
-  - mint
-contexts:
-  main: []
