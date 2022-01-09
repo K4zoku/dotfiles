@@ -20,7 +20,7 @@ inputbar {
   background-color: transparent;
   children: [entry];
   padding: 50px 0px;
-  background-image: @launcher-header;
+  background-image: @header-image;
 }
 
 entry {

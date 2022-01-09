@@ -21,7 +21,7 @@ mainbox {
 inputbar {
   padding: 30px 200px 30px 30px;
   children: [prompt,entry];
-  background-image: @network-header;
+  background-image: @header-image;
 }
 
 prompt {

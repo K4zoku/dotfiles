@@ -11,6 +11,5 @@
   bg-hover: @accent;
   fg-hover: #15191f;
   fg-unhover: @accent;
-  network-header: url("assets/dark/network-header.svg", height);
-  launcher-header: url("assets/dark/launcher-header.svg", height);
+  header-image: url("assets/dark/header.svg", height);
 }
