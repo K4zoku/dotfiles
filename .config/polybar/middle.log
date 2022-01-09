@@ -1,17 +1,6 @@
 polybar|notice:  Parsing config file: /home/kazoku/.config/polybar/config
-polybar|notice:  Loaded font "Fira Code:style=Regular:size=10" (name=Fira Code, offset=3, file=/usr/share/fonts/TTF/FiraCode-Regular.ttf)
-polybar|notice:  Loaded font "Font Awesome 5 Brands Regular:style=Regular:size=10" (name=Font Awesome 5 Brands, offset=2, file=/usr/share/fonts/TTF/fa-brands-400.ttf)
-polybar|notice:  Loaded font "Font Awesome 5 Free Solid:style=Solid:size=10" (name=Font Awesome 5 Free, offset=2, file=/usr/share/fonts/TTF/fa-solid-900.ttf)
-polybar|notice:  Loaded font "Font Awesome 5 Free Regular:style=Regular:size=10" (name=Font Awesome 5 Free, offset=2, file=/usr/share/fonts/TTF/fa-regular-400.ttf)
-polybar|error: Failed to restack bar window
-polybar|warn:  Dropping unmatched character 【 (U+3010) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character 東 (U+6771) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character 方 (U+65b9) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character ボ (U+30dc) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character ー (U+30fc) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character カ (U+30ab) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character ル (U+30eb) in ' 【東方ボーカル】 「'
-polybar|warn:  Dropping unmatched character 】 (U+3011) in ' 【東方ボーカル】 「'
+polybar|notice:  Loaded font "PlexCode Nerd Font:style=Medium:size=11" (name=PlexCode Nerd Font, offset=3, file=/home/kazoku/.fonts/Plex Code Medium Nerd Font Complete.ttf)
+polybar|notice:  Loaded font "IBM Plex Sans JP:style=Medium:size=11" (name=IBM Plex Sans JP, offset=3, file=/usr/share/fonts/TTF/IBMPlexSansJP-Medium.ttf)
 Traceback (most recent call last):
   File "/home/kazoku/.config/polybar/music_bar.py", line 16, in <module>
     print(players, player_names)

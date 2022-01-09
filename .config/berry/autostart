@@ -16,7 +16,8 @@ berryc decorate_new false
 berryc border_width          4
 berryc inner_border_width    0
 berryc title_height          0
-berryc edge_gap              8 8 48 8
+# berryc top_gap               48
+berryc edge_gap              48 8 8 8
 
 # Set decoration colors
 berryc focus_color           #131721
@@ -25,6 +26,28 @@ berryc inner_focus_color     #131721
 berryc inner_unfocus_color   #0e1419
 berryc text_focus_color      #e5e1cf
 berryc text_unfocus_color    #BFBDB6
+
+# Workspace options
+# berryc name_desktop 0 一
+# berryc name_desktop 1 ニ
+# berryc name_desktop 2 三
+# berryc name_desktop 3 四
+# berryc name_desktop 4 五
+# berryc name_desktop 5 六
+# berryc name_desktop 6 七
+# berryc name_desktop 7 八
+# berryc name_desktop 8 九
+# berryc name_desktop 9 十
+berryc name_desktop 0 
+berryc name_desktop 1 
+berryc name_desktop 2 
+berryc name_desktop 3 
+berryc name_desktop 4 
+berryc name_desktop 5 
+berryc name_desktop 6 
+berryc name_desktop 7 
+berryc name_desktop 8 
+berryc name_desktop 9 
 
 # Other options
 berryc set_font              "xft:Rubik:size=10:style=Bold"
@@ -53,7 +76,7 @@ pgrep -x picom          || picom -b                                &
 feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
 
 # panel
-pgrep -x tint2          || tint2                                   &
+pgrep -x polybar        || "${HOME}/.config/picom/launch.sh"       &
 
 # notification daemon
 pgrep -x dunst          || dunst                                   &

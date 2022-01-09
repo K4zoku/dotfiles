@@ -31,59 +31,53 @@ greenish = #A3BE8C
 
 
 [bar/left]
-width=32%
+width=19%
 height=30
-offset-x=10
+offset-x=8
 offset-y=5
 background=${colors.bg}
 foreground=#fff
-font-0="Fira Code:style=Regular:size=11;3"
-font-1="Font Awesome 5 Brands Regular:style=Regular:size=11;3"
-font-2="Font Awesome 5 Free Solid:style=Solid:size=11;3"
-font-3="Font Awesome 5 Free Regular:style=Regular:size=11;3"
+font-0="PlexCode Nerd Font:style=Medium:size=11;3"
+font-1="IBM Plex Sans JP:style=Medium:size=11;3"
+font-2="Font Awesome 5 Free:style=Regular:size=10;3"
+font-3="Font Awesome 5 Brands:style=Regular:size=10;3"
 line-size=2
 padding=1
-modules-center=i3
+modules-left=workspaces
 override-redirect=true
-wm-restack=i3
 
 [bar/middle]
-width=22%
+width=25%
 height=30
-offset-x=39%
+offset-x=37.5%
 offset-y=5
 background=${colors.bg}
 foreground=#fff
-font-0="Fira Code:style=Regular:size=10;3"
-font-1="Font Awesome 5 Brands Regular:style=Regular:size=10;2"
-font-2="Font Awesome 5 Free Solid:style=Solid:size=10;2"
-font-3="Font Awesome 5 Free Regular:style=Regular:size=10;2"
+font-0="PlexCode Nerd Font:style=Medium:size=11;3"
+font-1="IBM Plex Sans JP:style=Medium:size=11;3"
 line-size=2
 wm-name="polybar-middle"
 padding=2
 modules-center=music
 override-redirect=true
-wm-restack=i3
 
 [bar/right]
-width=32%:+10
+width=20%:+8
 height=30
-offset-x=68%:-10
+offset-x=80%:-8
 offset-y=5
 background=${colors.bg}
 foreground=#fff
 padding=2
-font-0="Fira Code:style=Regular:size=11;3"
-font-1="Font Awesome 5 Brands Regular:style=Regular:size=11;3"
-font-2="Font Awesome 5 Free Solid:style=Solid:size=11;3"
-font-3="Font Awesome 5 Free Regular:style=Regular:size=11;3"
+font-0="Rubik:style=Regular:size=11;3"
+font-1="PlexCode Nerd Font:style=Medium:size=11;3"
+font-2="IBM Plex Sans JP:style=Medium:size=11;3"
 module-margin-right=2
-modules-left=date pulseaudio tilewindow caffeinate
+modules-left=date pulseaudio
 tray-offset-x = -10
 tray-position=right
 tray-background = ${colors.bg}
 override-redirect=true
-wm-restack=i3
 
 [module/music]
 type = custom/script
@@ -99,19 +93,19 @@ time="%H:%M"
 label =  %date%   %time%
 label-font = 0
 
-[module/i3]
-type = internal/i3
+[module/workspaces]
+type = internal/xworkspaces
 strip-wsnumbers = true
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-0 = 0;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
+ws-icon-3 = 3;
+ws-icon-4 = 4;
+ws-icon-5 = 5;
+ws-icon-6 = 6;
+ws-icon-7 = 7;
+ws-icon-8 = 8;
+ws-icon-9 = 9;
 ws-icon-default = 
 ;
 
@@ -142,14 +136,3 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 click-right = pavucontrol
-
-[module/caffeinate]
-type = custom/script
-exec=~/.config/scripts/polybar/caffeinate/tail.sh
-tail=true
-
-[module/tilewindow]
-type = custom/text
-content = 
-click-left = ~/.config/scripts/polybar/set_rules.py -t
-click-right = ~/.config/scripts/polybar/set_rules.py -w
