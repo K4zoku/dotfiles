@@ -10,9 +10,9 @@ mainbox {
 }
 
 window {
-  width: 700px;
-  height: 520px;
-  border-radius: 6px;
+    width: 700px;
+    height: 520px;
+    border-radius: 6px;
 }
 
 inputbar {
