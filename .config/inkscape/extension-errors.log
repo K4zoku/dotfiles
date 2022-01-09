@@ -1,0 +1,24 @@
+Extension "Optimized PNG" failed to load because a dependency was not met.
+Dependency:
+	type: executable
+	location: path
+	string: optipng
+
+Extension "LaTeX (pdflatex)" failed to load because a dependency was not met.
+Dependency:
+	type: executable
+	location: path
+	string: pdflatex
+
+Extension "XFIG Input" failed to load because a dependency was not met.
+Dependency:
+	type: executable
+	location: path
+	string: fig2dev
+
+Extension "Export to PDF via Scribus" failed to load because a dependency was not met.
+Dependency:
+	type: executable
+	location: path
+	string: scribus
+

@@ -225,7 +225,7 @@ clean_timer() {
 }
 
 timer() {
-    case "$1" in ""|*[!0-9]*) return 1;; esac
+    case "$1" in ""|*[!0-9]*) return 0;; esac
     timeout="$1"
     timeleft="${timeout}"
     hide=0
@@ -237,7 +237,8 @@ timer() {
             read -r hide exit < "${SCREENSHOT_TIMER_VAR}"
             if [ "${exit}" = 1 ]; then
                 cancel
-                break
+                clean_timer
+                return 1
             fi
         fi
         # Preference: https://www.gafferongames.com/post/fix_your_timestep/
@@ -273,10 +274,10 @@ Available action:
 case "$1" in
     ""|"now") shot                      || exit 1 ;;
     *[0-9]*)  timer "$1" && shot        || exit 1 ;;
-    "timer")  timer "$2";   shot        || exit 1 ;;
-    "window") timer "$2";   shot_window || exit 1 ;;
-    "active") timer "$2";   shot_active || exit 1 ;;
-    "region") timer "$2";   shot_region || exit 0 ;; # do not save if user aborted
+    "timer")  timer "$2" && shot        || exit 1 ;;
+    "window") timer "$2" && shot_window || exit 1 ;;
+    "active") timer "$2" && shot_active || exit 1 ;;
+    "region") timer "$2" && shot_region || exit 0 ;; # do not save if user aborted
     "help")   printf "%s" "${__usage}"  && exit 0 ;;
     *)        printf "%s" "${__usage}"  && exit 1 ;;
 esac
