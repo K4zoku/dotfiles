@@ -20,15 +20,10 @@
 pseudo-transparency = false
 
 [colors]
-bg = #80343a40
+bg = #40475266
 
-primary = #81A1C1
-secondary = #5E81AC
-
-redish = #BF616A
-yellowish = #EBCB8B
-greenish = #A3BE8C
-
+primary = #E5B34F
+secondary = #38B9E5
 
 [bar/left]
 width=19%
@@ -62,22 +57,23 @@ modules-center=music
 override-redirect=true
 
 [bar/right]
-width=20%:+8
+width=22%:+8
 height=30
-offset-x=80%:-8
+offset-x=78%:-8
 offset-y=5
 background=${colors.bg}
 foreground=#fff
-padding=2
+padding=5
 font-0="Rubik:style=Regular:size=11;3"
-font-1="PlexCode Nerd Font:style=Medium:size=11;3"
-font-2="IBM Plex Sans JP:style=Medium:size=11;3"
-module-margin-right=2
+font-1="Font Awesome 5 Free:style=Regular:size=10;3"
+font-2="Font Awesome 5 Brands:style=Regular:size=10;3"
+font-3="PlexCode Nerd Font:style=Medium:size=11;3"
+font-4="IBM Plex Sans JP:style=Medium:size=11;3"
+module-margin-right=1
 modules-left=date pulseaudio
-tray-offset-x = -10
+tray-offset-x = -8
 tray-position=right
 tray-background = ${colors.bg}
-override-redirect=true
 
 [module/music]
 type = custom/script
@@ -112,7 +108,7 @@ ws-icon-default = 
 format = <label-state>
 
 label-focused = %icon%
-label-focused-background = #284862
+label-focused-background = ${colors.primary}
 label-focused-foreground = #ffffff
 label-focused-padding = 1
 
@@ -124,7 +120,7 @@ label-visible-padding = 1
 
 label-urgent = %icon%
 label-urgent-foreground = #000000
-label-urgent-background = #bd2c20
+label-urgent-background = #D75656
 label-urgent-padding = 1
 
 [module/pulseaudio]
