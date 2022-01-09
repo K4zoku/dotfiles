@@ -77,7 +77,7 @@ pgrep -x picom          || picom -b                                &
 feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
 
 # panel
-pgrep -x polybar        || "${HOME}/.config/picom/launch.sh"       &
+pgrep -x polybar        || "${HOME}/.config/polybar/launch.sh"     &
 
 # notification daemon
 pgrep -x dunst          || dunst                                   &
