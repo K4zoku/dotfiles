@@ -9,7 +9,7 @@
 	"settings":
 	{
 		"new_window_full_screen": false,
-		"new_window_height": 616.0,
+		"new_window_height": 624.0,
 		"new_window_maximized": false,
 		"new_window_settings":
 		{
@@ -50,8 +50,9 @@
 			},
 			"file_history":
 			[
-				"/home/kazoku/Repositories/dotfiles/.config/dunst/dunstrc-dark-right",
+				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/.gitignore",
 				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/Packages/.gitignore",
+				"/home/kazoku/Repositories/dotfiles/.config/dunst/dunstrc-dark-right",
 				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/Packages/User/.gitignore"
 			],
 			"find":
@@ -142,7 +143,7 @@
 			{
 			}
 		},
-		"new_window_width": 816.0
+		"new_window_width": 824.0
 	},
 	"windows":
 	[
@@ -188,8 +189,9 @@
 			},
 			"file_history":
 			[
-				"/home/kazoku/Repositories/dotfiles/.config/dunst/dunstrc-dark-right",
+				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/.gitignore",
 				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/Packages/.gitignore",
+				"/home/kazoku/Repositories/dotfiles/.config/dunst/dunstrc-dark-right",
 				"/home/kazoku/Repositories/dotfiles/.config/sublime-text/Packages/User/.gitignore"
 			],
 			"find":
@@ -268,7 +270,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,0,0,0,45,48,861,664,1366,768,4",
+			"position": "0,0,0,0,0,45,48,869,672,1366,768,4",
 			"project": "",
 			"replace":
 			{
