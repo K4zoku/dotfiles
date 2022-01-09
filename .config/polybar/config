@@ -80,7 +80,7 @@ type = custom/script
 tail = true
 ;format-prefix = ""
 format = <label>
-exec = ~/.config/scripts/polybar/music.py
+exec = ~/.scripts/music.py
 
 [module/date]
 type=internal/date
@@ -126,8 +126,8 @@ label-urgent-padding = 1
 [module/pulseaudio]
 type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
-format-muted = %{F#cccccc}<label-muted>%{F-}
-label-muted = 
+format-muted = %{F#cccccc}<label-muted> Muted%{F-}
+label-muted = ﱝ
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
