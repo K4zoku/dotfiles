@@ -4,7 +4,8 @@
     (icon-name "gimp-cursor")
     (name "Core Pointer")
     (tool-options "GimpTransformGridOptions"
-        (tool "gimp-rotate-tool"))
+        (tool "gimp-rotate-tool")
+        (interpolation linear))
     (use-fg-bg yes)
     (use-opacity-paint-mode no)
     (use-brush no)

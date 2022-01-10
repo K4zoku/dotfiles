@@ -2032,6 +2032,9 @@
   <resource identifier="Archery Black Rounded" checksum="(null)">
   </resource>
 
+  <resource identifier="Architects Daughter" checksum="(null)">
+  </resource>
+
   <resource identifier="Are You Hung Up" checksum="(null)">
   </resource>
 
@@ -2228,6 +2231,42 @@
   </resource>
 
   <resource identifier="Backcab Ultra-Light" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Bold Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Light" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Light Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Medium Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Semi-Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree Semi-Bold Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree weight=275" checksum="(null)">
+  </resource>
+
+  <resource identifier="Bai Jamjuree weight=275 Italic" checksum="(null)">
   </resource>
 
   <resource identifier="Baldur" checksum="(null)">
@@ -3050,6 +3089,18 @@
   </resource>
 
   <resource identifier="ChangChang" checksum="(null)">
+  </resource>
+
+  <resource identifier="Charger" checksum="(null)">
+  </resource>
+
+  <resource identifier="Charger" checksum="(null)">
+  </resource>
+
+  <resource identifier="Charger" checksum="(null)">
+  </resource>
+
+  <resource identifier="Charger" checksum="(null)">
   </resource>
 
   <resource identifier="Charlemagne" checksum="(null)">
@@ -9161,6 +9212,21 @@
   </resource>
 
   <resource identifier="Quickmark Shadow" checksum="(null)">
+  </resource>
+
+  <resource identifier="Quicksand" checksum="(null)">
+  </resource>
+
+  <resource identifier="Quicksand Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="Quicksand Light" checksum="(null)">
+  </resource>
+
+  <resource identifier="Quicksand Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="Quicksand Semi-Bold" checksum="(null)">
   </resource>
 
   <resource identifier="Quicksilver" checksum="(null)">

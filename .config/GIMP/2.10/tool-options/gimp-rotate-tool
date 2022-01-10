@@ -1,4 +1,5 @@
 # GIMP gimp-rotate-tool options
 
+(interpolation linear)
 
 # end of gimp-rotate-tool options
