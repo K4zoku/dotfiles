@@ -1,7 +1,7 @@
 <h1 align="center"><b>dotfiles</b></h1>
 <p align="center">
     <a href="LICENSE">
-        <img alt="License" src="https://img.shields.io/github/license/K4zoku/c-stack?style=for-the-badge">
+        <img alt="License" src="https://img.shields.io/github/license/K4zoku/dotfiles?style=for-the-badge">
     </a>
 </p>
 
