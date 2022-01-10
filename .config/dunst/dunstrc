@@ -16,13 +16,13 @@ padding = 8
 horizontal_padding = 11
 frame_width = 0
 frame_color = "#323232"
-separator_color = "#36a3d9"
+separator_color = "#E5B34F"
 
 font = PlexCodePro Nerd Font 10
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='PlexCodePro Nerd Font 9' weight='bold' foreground='#e5e1cf'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Plex Code Pro 10' weight='bold' foreground='#FCFCFC'>%s</span>\n%b"
 alignment = left
 
 idle_threshold = 120
@@ -50,15 +50,15 @@ mouse_right_click = close_current
 
 [urgency_low]
 timeout = 3
-background = "#0e1419"
-foreground = "#e5e1cf"
+background = "#1F2531"
+foreground = "#FCFCFC"
 
 [urgency_normal]
 timeout = 6
-background = "#0e1419"
-foreground = "#e5e1cf"
+background = "#1F2531"
+foreground = "#FCFCFC"
 
 [urgency_critical]
 timeout = 0
-background = "#0e1419"
-foreground = "#e5e1cf"
+background = "#1F2531"
+foreground = "#FCFCFC"
