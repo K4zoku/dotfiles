@@ -55,13 +55,13 @@ berryc draw_text             false
 berryc smart_place           true
 berryc edge_lock             true
 berryc focus_follows_pointer false
-berryc move_mask ctrl
+berryc move_mask             ctrl
 
 # wallpaper
 feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
 
-# panel
-pgrep -x polybar        || "${HOME}/.config/polybar/launch.sh"     &
+# bar
+pgrep -x polybar || "${HOME}/.config/polybar/launch.sh"            &
 
 # if reload, do not run app
 [ "${1}" = "reload" ] && exit 0
