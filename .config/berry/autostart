@@ -57,6 +57,12 @@ berryc edge_lock             true
 berryc focus_follows_pointer false
 berryc move_mask ctrl
 
+# wallpaper
+feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
+
+# panel
+pgrep -x polybar        || "${HOME}/.config/polybar/launch.sh"     &
+
 # if reload, do not run app
 [ "${1}" = "reload" ] && exit 0
 
@@ -73,12 +79,6 @@ pgrep -x sxhkd          || sxhkd -c ~/.config/berry/sxhkdrc        &
 # compositor
 pgrep -x picom          || picom -b                                &
 
-# wallpaper
-feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
-
-# panel
-pgrep -x polybar        || "${HOME}/.config/polybar/launch.sh"     &
-
 # notification daemon
 pgrep -x dunst          || dunst                                   &
 
@@ -86,7 +86,7 @@ pgrep -x dunst          || dunst                                   &
 pgrep -x ibus-daemon    || ibus-daemon -dxrR                       &
 
 # clipboard daemon
-pgrep -x xcmenu         || xcmenu --daemon                         &
+pgrep -x copyq          || copq                                    &
 
 # chat client
 pgrep -x discord        || ping -c 1 discord.com && discord        &

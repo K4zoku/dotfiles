@@ -30,7 +30,7 @@ secondary=#38B9E5
 urgent=#D95757
 
 [bar/left]
-width=25%
+width=26%
 height=30
 offset-x=8
 offset-y=5
@@ -109,15 +109,15 @@ format=<label-state>
 
 label-active-background=${colors.primary}
 label-active-foreground=${colors.background}
-label-active-padding=0
+label-active-padding=1
 
 label-urgent-background=${colors.urgent}
 label-urgent-foreground=${colors.foreground}
-label-urgent-padding=0
+label-urgent-padding=1
 
-label-occupied-padding=0
+label-occupied-padding=1
 
-label-empty-padding=0
+label-empty-padding=1
 
 [module/pulseaudio]
 type=internal/pulseaudio
