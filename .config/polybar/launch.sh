@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 killall -q polybar
 
-while pgrep -x polybar >/dev/null; do sleep 1; done
+while pgrep -x polybar >/dev/null; do
+	sleep 1
+done
 
 pkill -F /tmp/polybar-music.pid
 rm /tmp/polybar-music.pid

@@ -1,7 +1,7 @@
 polybar|notice:  Parsing config file: /home/kazoku/.config/polybar/config
 polybar|notice:  pulseaudio: using default sink alsa_output.pci-0000_00_1b.0.analog-stereo
-polybar|notice:  Loaded font "Rubik:style=Regular:size=11" (name=Rubik, offset=3, file=/home/kazoku/.fonts/Rubik-VariableFont_wght.ttf)
+polybar|notice:  Loaded font "Rubik:style=Medium:size=11" (name=Rubik, offset=3, file=/home/kazoku/.fonts/Rubik-VariableFont_wght.ttf)
 polybar|notice:  Loaded font "Font Awesome 5 Free:style=Regular:size=10" (name=Font Awesome 5 Free, offset=3, file=/usr/share/fonts/TTF/fa-regular-400.ttf)
 polybar|notice:  Loaded font "Font Awesome 5 Brands:style=Regular:size=10" (name=Font Awesome 5 Brands, offset=3, file=/usr/share/fonts/TTF/fa-brands-400.ttf)
-polybar|notice:  Loaded font "PlexCode Nerd Font:style=Medium:size=11" (name=PlexCode Nerd Font, offset=3, file=/home/kazoku/.fonts/Plex Code Medium Nerd Font Complete.ttf)
 polybar|notice:  Loaded font "IBM Plex Sans JP:style=Medium:size=11" (name=IBM Plex Sans JP, offset=3, file=/usr/share/fonts/TTF/IBMPlexSansJP-Medium.ttf)
+polybar|notice:  Loaded font "Symbols Nerd Font:style=2048-em:size=12" (name=Symbols Nerd Font, offset=3, file=/usr/share/fonts/TTF/Symbols-2048-em Nerd Font Complete.ttf)

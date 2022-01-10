@@ -4,6 +4,7 @@ import dbus
 import signal
 import time
 from unicodedata import east_asian_width
+import os, sys
 
 # Config options
 
@@ -11,7 +12,7 @@ from unicodedata import east_asian_width
 message_display_len = 20
 
 # (int) : Font index of polybar. this value should be 1 more than the font value specified in polybar config.
-font_index = 1
+font_index = 2
 
 # (float) : Update speed of the text in seconds.
 update_delay = 0.3
@@ -25,7 +26,7 @@ control_chars = ['','','','']
 # example:
 display_player_prefix = {
     "spotify":  '',
-    "chrome":  '',
+    "chromium": '',
     "default":  ''
 }
 
@@ -82,19 +83,19 @@ def update_prefix_suffix(player_name="", status=""):
     if player_name != "":
         player_option = "-p " + player_name
 
-    prev_button = "%%{A:playerctl %s previous :}%c%%{A}"    %(player_option,control_chars[0])
-    play_button = "%%{A:playerctl %s play :}%c%%{A}"        %(player_option,control_chars[1])
-    pause_button = "%%{A:playerctl %s pause :}%c%%{A}"      %(player_option,control_chars[2])
-    next_button = "%%{A:playerctl %s next :}%c%%{A}"        %(player_option,control_chars[3])
+    prev_button  = "%%{A:playerctl %s previous :}%c%%{A}"    %(player_option,control_chars[0])
+    play_button  = "%%{A:playerctl %s play :}%c%%{A}"        %(player_option,control_chars[1])
+    pause_button = "%%{A:playerctl %s pause :}%c%%{A}"       %(player_option,control_chars[2])
+    next_button  = "%%{A:playerctl %s next :}%c%%{A}"        %(player_option,control_chars[3])
 
     suffix = "| " + prev_button
     if status == "Playing":
-        suffix += " "+pause_button
+        suffix += " " + pause_button
         status_paused = False
     else:
-        suffix += " "+play_button
+        suffix += " " + play_button
         status_paused = True
-    suffix += " "+next_button
+    suffix += " " + next_button
     # print(suffix)
     display_suffix = suffix
 
@@ -208,5 +209,12 @@ def main():
         print_text()
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGUSR1, handle_event)
-    main()
+    try:
+        signal.signal(signal.SIGUSR1, handle_event)
+        main()
+    except KeyboardInterrupt:
+        # print('Interrupted')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)

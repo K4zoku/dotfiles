@@ -38,16 +38,16 @@ berryc text_unfocus_color    BFBDB6
 # berryc name_desktop 7 八
 # berryc name_desktop 8 九
 # berryc name_desktop 9 十
-berryc name_desktop 0 
-berryc name_desktop 1 
-berryc name_desktop 2 
-berryc name_desktop 3 
-berryc name_desktop 4 
-berryc name_desktop 5 
-berryc name_desktop 6 
-berryc name_desktop 7 
-berryc name_desktop 8 
-berryc name_desktop 9 
+berryc name_desktop 0 " "
+berryc name_desktop 1 " "
+berryc name_desktop 2 " "
+berryc name_desktop 3 " "
+berryc name_desktop 4 " "
+berryc name_desktop 5 " "
+berryc name_desktop 6 " "
+berryc name_desktop 7 "ﳨ "
+berryc name_desktop 8 " "
+berryc name_desktop 9 " "
 
 # Other options
 berryc set_font              "xft:Rubik:size=10:style=Bold"

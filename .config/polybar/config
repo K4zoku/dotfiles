@@ -20,115 +20,114 @@
 pseudo-transparency = false
 
 [colors]
-bg = #40475266
-
-primary = #E5B34F
-secondary = #38B9E5
+background=#1F2531
+background-alt=#E66C7380
+foreground=#BFBDB6
+foreground-alt=#565B66
+foreground-alt-alt=#FCFCFC
+primary=#E5B34F
+secondary=#38B9E5
+urgent=#D95757
 
 [bar/left]
-width=19%
+width=25%
 height=30
 offset-x=8
 offset-y=5
-background=${colors.bg}
-foreground=#fff
-font-0="PlexCode Nerd Font:style=Medium:size=11;3"
+background=${colors.background}
+foreground=${colors.foreground}
+font-0="Plex Code Pro:style=Medium:size=10;3"
 font-1="IBM Plex Sans JP:style=Medium:size=11;3"
-font-2="Font Awesome 5 Free:style=Regular:size=10;3"
-font-3="Font Awesome 5 Brands:style=Regular:size=10;3"
+font-2="Font Awesome 5 Brands:style=Regular:size=11;3"
+font-3="Symbols Nerd Font:style=2048-em:size=12;3"
 line-size=2
 padding=1
-modules-left=workspaces
-override-redirect=true
+modules-center=workspaces
 
 [bar/middle]
 width=25%
 height=30
 offset-x=37.5%
 offset-y=5
-background=${colors.bg}
-foreground=#fff
-font-0="PlexCode Nerd Font:style=Medium:size=11;3"
-font-1="IBM Plex Sans JP:style=Medium:size=11;3"
-line-size=2
+background=${colors.background}
+foreground=${colors.foreground}
 wm-name="polybar-middle"
+font-0="Plex Code Pro:style=Medium:size=10;3"
+font-1="IBM Plex Sans JP:style=Medium:size=11;3"
+font-2="Symbols Nerd Font:style=2048-em:size=12;3"
+line-size=2
 padding=2
 modules-center=music
-override-redirect=true
 
 [bar/right]
 width=22%:+8
 height=30
 offset-x=78%:-8
 offset-y=5
-background=${colors.bg}
-foreground=#fff
+background=${colors.background}
+foreground=${colors.foreground}
 padding=5
-font-0="Rubik:style=Regular:size=11;3"
+font-0="Rubik:style=Medium:size=11;3"
 font-1="Font Awesome 5 Free:style=Regular:size=10;3"
 font-2="Font Awesome 5 Brands:style=Regular:size=10;3"
-font-3="PlexCode Nerd Font:style=Medium:size=11;3"
-font-4="IBM Plex Sans JP:style=Medium:size=11;3"
+font-3="IBM Plex Sans JP:style=Medium:size=11;3"
+font-4="Symbols Nerd Font:style=2048-em:size=12;3"
 module-margin-right=1
-modules-left=date pulseaudio
-tray-offset-x = -8
+modules-left=datetime pulseaudio
+tray-offset-x=-8
 tray-position=right
-tray-background = ${colors.bg}
+tray-background=${colors.background}
 
 [module/music]
 type = custom/script
 tail = true
-;format-prefix = ""
-format = <label>
-exec = ~/.scripts/music.py
+format-prefix=""
+format=<label>
+exec=~/.scripts/music.py
 
-[module/date]
+[module/datetime]
 type=internal/date
 date="%b %d"
 time="%H:%M"
-label =  %date%   %time%
-label-font = 0
+label="  %time% "
+label-font=0
 
 [module/workspaces]
-type = internal/xworkspaces
-strip-wsnumbers = true
-ws-icon-0 = 0;
-ws-icon-1 = 1;
-ws-icon-2 = 2;
-ws-icon-3 = 3;
-ws-icon-4 = 4;
-ws-icon-5 = 5;
-ws-icon-6 = 6;
-ws-icon-7 = 7;
-ws-icon-8 = 8;
-ws-icon-9 = 9;
-ws-icon-default = 
-;
+type=internal/xworkspaces
+ws-icon-0=D;
+ws-icon-1=C;
+ws-icon-2=T;
+ws-icon-3=c;
+ws-icon-4=g;
+ws-icon-5=s;
+ws-icon-6=F;
+ws-icon-7=R;ﳨ
+ws-icon-8=S;
+ws-icon-9=G;
+ws-icon-default=
 
-format = <label-state>
+format=<label-state>
 
-label-focused = %icon%
-label-focused-background = ${colors.primary}
-label-focused-foreground = #ffffff
-label-focused-padding = 1
+label-active-background=${colors.primary}
+label-active-foreground=${colors.foreground-alt-alt}
+label-active-padding=0
 
-label-unfocused = %icon%
-label-unfocused-padding = 1
+label-urgent-background=${colors.urgent}
+label-urgent-foreground=${colors.foreground}
+label-urgent-padding=0
 
-label-visible = %icon%
-label-visible-padding = 1
+label-occupied-padding=0
 
-label-urgent = %icon%
-label-urgent-foreground = #000000
-label-urgent-background = #D75656
-label-urgent-padding = 1
+label-empty-padding=0
 
 [module/pulseaudio]
-type = internal/pulseaudio
-format-volume = <ramp-volume> <label-volume>
-format-muted = %{F#cccccc}<label-muted> Muted%{F-}
-label-muted = ﱝ
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-click-right = pavucontrol
+type=internal/pulseaudio
+format-volume=<ramp-volume> <label-volume>
+format-muted=<label-muted>
+label-muted-foreground=${colors.foreground-alt}
+use-ui-max=false
+label-muted=ﱝ Muted
+ramp-volume-0= 
+ramp-volume-1= 
+ramp-volume-2= 
+click-right=pavucontrol
