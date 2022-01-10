@@ -6,9 +6,9 @@ follow = mouse
 indicate_hidden = yes
 shrink = yes
 
-origin = top-left
+origin = top-right
 width = 300
-offset = 48x8
+offset = 8x48
 
 transparency = 0
 separator_height = 2

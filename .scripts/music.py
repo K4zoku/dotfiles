@@ -9,10 +9,10 @@ import os, sys
 # Config options
 
 # (int) : Length of media info string. If length of string exceedes this value, the text will scroll. Default value is 20
-message_display_len = 20
+message_display_len = 32
 
 # (int) : Font index of polybar. this value should be 1 more than the font value specified in polybar config.
-font_index = 2
+font_index = 1
 
 # (float) : Update speed of the text in seconds.
 update_delay = 0.3
@@ -88,16 +88,16 @@ def update_prefix_suffix(player_name="", status=""):
     pause_button = "%%{A:playerctl %s pause :}%c%%{A}"       %(player_option,control_chars[2])
     next_button  = "%%{A:playerctl %s next :}%c%%{A}"        %(player_option,control_chars[3])
 
-    suffix = "| " + prev_button
+    suffix = "▏" + prev_button
     if status == "Playing":
-        suffix += " " + pause_button
+        suffix += "  " + pause_button
         status_paused = False
     else:
-        suffix += " " + play_button
+        suffix += "  " + play_button
         status_paused = True
-    suffix += " " + next_button
+    suffix += "  " + next_button
     # print(suffix)
-    display_suffix = suffix
+    display_suffix = suffix + "▕"
 
     for key in display_player_prefix.keys():
         if key in player_name:
