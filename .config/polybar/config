@@ -76,7 +76,7 @@ module-margin-right=1
 modules-left=datetime pulseaudio
 tray-offset-x=-8
 tray-position=right
-tray-background=${colors.background}
+tray-background=${colors.background-alt}
 
 [module/music]
 type = custom/script
@@ -109,7 +109,7 @@ ws-icon-default=
 format=<label-state>
 
 label-active-background=${colors.primary}
-label-active-foreground=${colors.foreground-alt-alt}
+label-active-foreground=${colors.background}
 label-active-padding=0
 
 label-urgent-background=${colors.urgent}
