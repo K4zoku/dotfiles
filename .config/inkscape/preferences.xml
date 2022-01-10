@@ -588,7 +588,7 @@
        path="">
       <group
          id="exportarea"
-         value="page" />
+         value="selection" />
       <group
          id="defaultxdpi"
          value="96" />

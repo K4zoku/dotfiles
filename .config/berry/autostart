@@ -70,23 +70,26 @@ pgrep -x polybar        || "${HOME}/.config/polybar/launch.sh"     &
 # APPLICATION AUTOSTART #
 #########################
 
+# fix berry focus window but not switching workspace
+"${HOME}"/.scripts/berry_focus_fix      &
+
 # fix cursor
-xsetroot -cursor_name left_ptr                                     &
+xsetroot -cursor_name left_ptr          &
 
 # hotkey daemon
-pgrep -x sxhkd          || sxhkd -c ~/.config/berry/sxhkdrc        &
+sxhkd -c ~/.config/berry/sxhkdrc        &
 
 # compositor
-pgrep -x picom          || picom -b                                &
+picom -b                                &
 
 # notification daemon
-pgrep -x dunst          || dunst                                   &
+dunst                                   &
 
 # input daemon
-pgrep -x ibus-daemon    || ibus-daemon -dxrR                       &
+ibus-daemon -dxrR                       &
 
 # clipboard daemon
-pgrep -x copyq          || copq                                    &
+copq                                    &
 
 # chat client
-pgrep -x discord        || ping -c 1 discord.com && discord        &
+ping -c 1 discord.com && discord        &

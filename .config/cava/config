@@ -97,15 +97,16 @@ method = ncurses
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
 # terminal that can change color definitions such as Gnome-terminal or rxvt.
 ; background = black
-foreground = 'red'
+foreground = 'yellow'
 
 # Gradient mode, only hex defined colors are supported, background must also be defined in hex
 # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
 # not able to restore color definitions on exit, simply restart your terminal to restore colors.
 gradient = 1
-gradient_count = 2
-gradient_color_1 = '#2980B9'
-gradient_color_2 = '#6DD5FA'
+gradient_count = 3
+gradient_color_1 = '#F09467'
+gradient_color_2 = '#FDB253'
+gradient_color_3 = '#E5B34F'
 
 
 [smoothing]

@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+INTERVAL=0.5
+
+main() {
+	while :
+	do
+		sleep "${INTERVAL}"
+		current_desktop="$(xprop -root _NET_CURRENT_DESKTOP | cut -d' ' -f3)"
+		active_window="$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f2)"
+		if [ -z "${active_window_desktop}" ]; then
+			continue
+		fi
+		active_window_desktop="$(xprop -id "${active_window}" _NET_WM_DESKTOP | cut -d' ' -f3)"
+		if [ "${current_desktop}" = "${active_window_desktop}" ]; then
+			printf "Desktop not match, switching...\n"
+			berryc switch_workspace "${active_window_desktop}"
+		fi
+	done
+}
+
+main &
