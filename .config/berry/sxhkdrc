@@ -80,18 +80,18 @@ super + slash
 
 # [berrywm] move
 super + ctrl + a : {Left,Down,Up,Right}
-    berryc window_move {-2 0, 0 2, 0 -2, 2 0}
+    berryc window_move {-4 0, 0 4, 0 -4, 4 0}
 
 # [berrywm] resize
 super + ctrl + s : {Left,Down,Up,Right}
-    berryc window_resize {-2 0, 0 2, 0 -2, 2 0}
+    berryc window_resize {-4 0, 0 4, 0 -4, 4 0}
 
 # [berrywm] switch workspace
-super + {1-9}
+super + {1-9, 0}
     berryc switch_workspace {0-9}
 
 # [berrywm] send to workspace
-super + shift + {1-9}
+super + shift + {1-9, 0}
     berryc send_to_workspace {0-9}
 
 # [berrywm] window monocle
