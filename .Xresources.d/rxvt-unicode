@@ -10,7 +10,7 @@ URxvt.boldItalicfont:  xft:PlexCodePro Nerd Font Mono:antialias=true:size=10:sty
 URxvt.letterSpace:     -1
 URxvt.lineSpace:       -1
 URxvt.geometry:        80x24
-URxvt.internalBorder:  0
+URxvt.internalBorder:  4
 URxvt.cursorBlink:     true
 URxvt.cursorUnderline: true
 URxvt.saveline:        2048
