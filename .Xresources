@@ -1,0 +1,114 @@
+
+!!! Colorscheme !!!
+
+!!!!!!!!!!!!!!!!
+!!! ayu dark !!!
+!!!!!!!!!!!!!!!!
+#define ayu0 #39BAE6
+#define ayu1 #FFB454
+#define ayu2 #59C2FF
+#define ayu3 #AAD94C
+#define ayu4 #95E6CB
+#define ayu5 #F07178
+#define ayu6 #FF8F40
+#define ayu7 #E6B673
+#define ayu8 #D2A6FF
+#define ayu9 #F29668
+#define ayu10 #7FD962
+#define ayu11 #73B8FF
+#define ayu12 #F26D78
+#define ayu13 #6C5980
+#define ayu14 #6C598066
+#define ayu15 #6C7380E6
+#define ayu16 #6C738099
+#define ayu17 #6C738080
+#define ayu18 #6C738033
+#define editor_fg #BFBDB6
+#define editor_bg #0D1017
+#define editor_line #131721
+#define editor_selection_active #409FFF4D
+#define editor_selection_inactive #409FFF21
+#define ui_fg #565B66
+#define ui_bg #0B0E14
+#define ui_line #11151C
+#define ui_selection_active #47526640
+#define ui_selection_normal #47526633
+#define ui_panel_bg #0F131A
+#define ui_panel_shadow #00000080
+#define accent #E6B450
+#define error #D95757
+#define comment #ACB6BF8C
+
+! special
+*.background: editor_bg
+*.foreground: editor_fg
+*.cursorColor: accent
+! black
+*.color0: #000000
+*.color8: #475266
+! red
+*.color1: error
+*.color9: ayu5
+! green
+*.color2: ayu10
+*.color10: ayu3
+! yellow
+*.color3: ayu1
+*.color11: ayu7
+! blue
+*.color4: ayu0
+*.color12: ayu2
+! magenta
+*.color5: ayu13
+*.color13: ayu8
+! cyan
+*.color6: ayu4
+*.color14: #C7FFFC
+! white
+*.color7: #FFFFFF
+*.color15: #FAFAFA
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! URxvt configuration !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!! URxvt Appearance
+URxvt.font:           xft:PlexCodePro Nerd Font Mono:antialias=true:size=10:style=Medium
+URxvt.boldFont:       xft:PlexCodePro Nerd Font Mono:antialias=true:size=10:style=Bold
+URxvt.italicFont:     xft:PlexCodePro Nerd Font Mono:antialias=true:size=10:style=Italic
+URxvt.boldItalicfont: xft:PlexCodePro Nerd Font Mono:antialias=true:size=10:style=Bold Italic
+URxvt.letterSpace: -1
+URxvt.lineSpace: -1
+URxvt.geometry: 80x24
+URxvt.internalBorder: 0
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
