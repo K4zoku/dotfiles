@@ -1,6 +1,8 @@
 !!!!!!!!!!!!!!!!
 !!! ayu dark !!!
 !!!!!!!!!!!!!!!!
+
+!! TODO: Change all colors to solid colors
 #define ayu0  #39BAE6
 #define ayu1  #FFB454
 #define ayu2  #59C2FF
@@ -29,7 +31,8 @@
 #define ayu_ui_panel_shadow #00000080
 #define ayu_accent  #E6B450
 #define ayu_error   #D95757
-#define ayu_comment #ACB6BF8C
+! #define ayu_comment #ACB6BF8C
+#define ayu_comment #ACB6BF
 
 !!!!!!!!!!!!!!!!!!
 !!! generalize !!!
@@ -70,7 +73,7 @@
 #define colorscheme_accent          ayu_accent
 #define colorscheme_background      ayu_ui_bg
 #define colorscheme_background_alt0 ayu_editor_bg
-#define colorscheme_background_alt1 ayu_editor_bg
-#define colorscheme_foreground      ayu_ui_fg
-#define colorscheme_foreground_alt0 ayu_editor_fg
-#define colorscheme_foreground_alt1 ayu_editor_fg
+#define colorscheme_background_alt1 ayu_ui_panel_bg
+#define colorscheme_foreground      ayu_editor_fg
+#define colorscheme_foreground_alt0 ayu_comment
+#define colorscheme_foreground_alt1 ayu_ui_fg
