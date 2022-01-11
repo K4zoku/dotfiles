@@ -1,0 +1,52 @@
+#include "colorschemes/ayu_dark"
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! ^ only edit first line ^ !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!
+! special !
+!!!!!!!!!!!
+*.accent:           colorscheme_accent
+*.background:       colorscheme_background
+*.foreground:       colorscheme_foreground
+*.background_alt0:  colorscheme_background_alt0
+*.foreground_alt0:  colorscheme_foreground_alt0
+*.background_alt1:  colorscheme_background_alt1
+*.foreground_alt1:  colorscheme_foreground_alt1
+*.cursorColor:      colorscheme_accent
+
+!!!!!!!!!!
+! colors !
+!!!!!!!!!!
+
+! black
+*.color0:  colorscheme_color0
+*.color8:  colorscheme_color8
+
+! red
+*.color1:  colorscheme_color1
+*.color9:  colorscheme_color9
+
+! green
+*.color2:  colorscheme_color2
+*.color10: colorscheme_color10
+
+! yellow
+*.color3:  colorscheme_color3
+*.color11: colorscheme_color11
+
+! blue
+*.color4:  colorscheme_color4
+*.color12: colorscheme_color12
+
+! magenta
+*.color5:  colorscheme_color5
+*.color13: colorscheme_color13
+
+! cyan
+*.color6:  colorscheme_color6
+*.color14: colorscheme_color14
+
+! white
+*.color7:  colorscheme_color7
+*.color15: colorscheme_color15

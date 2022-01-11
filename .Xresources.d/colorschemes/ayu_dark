@@ -1,0 +1,76 @@
+!!!!!!!!!!!!!!!!
+!!! ayu dark !!!
+!!!!!!!!!!!!!!!!
+#define ayu0  #39BAE6
+#define ayu1  #FFB454
+#define ayu2  #59C2FF
+#define ayu3  #AAD94C
+#define ayu4  #95E6CB
+#define ayu5  #F07178
+#define ayu6  #FF8F40
+#define ayu7  #E6B673
+#define ayu8  #D2A6FF
+#define ayu9  #F29668
+#define ayu10 #7FD962
+#define ayu11 #73B8FF
+#define ayu12 #F26D78
+#define ayu13 #6C5980
+#define ayu_editor_fg #BFBDB6
+#define ayu_editor_bg #0D1017
+#define ayu_editor_line #131721
+#define ayu_editor_selection_active #409FFF4D
+#define ayu_editor_selection_inactive #409FFF21
+#define ayu_ui_fg #565B66
+#define ayu_ui_bg #0B0E14
+#define ayu_ui_line #11151C
+#define ayu_ui_selection_active #47526640
+#define ayu_ui_selection_normal #47526633
+#define ayu_ui_panel_bg #0F131A
+#define ayu_ui_panel_shadow #00000080
+#define ayu_accent  #E6B450
+#define ayu_error   #D95757
+#define ayu_comment #ACB6BF8C
+
+!!!!!!!!!!!!!!!!!!
+!!! generalize !!!
+!!!!!!!!!!!!!!!!!!
+
+! black
+#define colorscheme_color0  #000000
+#define colorscheme_color8  ayu_ui_fg
+
+! red
+#define colorscheme_color1  ayu_error
+#define colorscheme_color9  ayu5
+
+! green
+#define colorscheme_color2  ayu10
+#define colorscheme_color10 ayu3
+
+! yellow
+#define colorscheme_color3  ayu1
+#define colorscheme_color11 ayu7
+
+! blue
+#define colorscheme_color4  ayu0
+#define colorscheme_color12 ayu2
+
+! magenta
+#define colorscheme_color5  ayu13
+#define colorscheme_color13 ayu8
+
+! cyan
+#define colorscheme_color6  ayu11
+#define colorscheme_color14 ayu4
+
+! white
+#define colorscheme_color7  #FFFFFF
+#define colorscheme_color15 ayu_editor_fg
+
+#define colorscheme_accent          ayu_accent
+#define colorscheme_background      ayu_ui_bg
+#define colorscheme_background_alt0 ayu_editor_bg
+#define colorscheme_background_alt1 ayu_editor_bg
+#define colorscheme_foreground      ayu_ui_fg
+#define colorscheme_foreground_alt0 ayu_editor_fg
+#define colorscheme_foreground_alt1 ayu_editor_fg
