@@ -25,7 +25,7 @@ inputbar {
     background-color: transparent;
     children: [entry];
     padding: 50px 0px;
-    background-image: @header-image;
+    /*background-image: @header-image;*/
 }
 
 entry {

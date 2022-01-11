@@ -12,7 +12,7 @@ hex2rgb() {
 }
 # Foreground: \e[38;2
 # Background: \e[48;2
-ACCENT_COLOR="$(xrdb -get color4 | hex2rgb)"
+ACCENT_COLOR="$(xrdb -get accent | hex2rgb)"
 NORMAL_COLOR="$(xrdb -get foreground | hex2rgb)"
 
 fgcolor() {

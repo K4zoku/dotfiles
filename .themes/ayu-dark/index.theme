@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Ayu-Dark
-Comment=A flat theme with transparent elements
+Name=ayu-dark
+Comment=A theme with ayu color scheme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
 GtkTheme=ayu-dark
 MetacityTheme=ayu-dark
 IconTheme=Papirus
-CursorTheme=DMZ-Black
+CursorTheme=
 ButtonLayout=menu:minimize,maximize,close

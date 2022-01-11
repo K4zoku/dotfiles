@@ -125,8 +125,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="78.8869"
-         height="134.015"
+         width="954.348"
+         height="682.421"
          ry="0"
          rx="0" />
       <eventcontext
@@ -319,7 +319,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -588,7 +588,7 @@
        path="">
       <group
          id="exportarea"
-         value="drawing" />
+         value="page" />
       <group
          id="defaultxdpi"
          value="96" />
@@ -962,7 +962,7 @@
      org.inkscape.input.gdkpixbuf.png.scale="optimizeQuality" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:'IBM Plex Sans JP Bold';font-family:'IBM Plex Sans JP';font-size:96px;fill:#131721;text-anchor:middle;text-align:center;font-weight:bold;stroke-width:5;paint-order:stroke fill markers">
+     style="-inkscape-font-specification:'IBM Plex Sans JP Bold';font-family:'IBM Plex Sans JP';font-size:96px;fill:#0d1017;text-anchor:middle;text-align:center;font-weight:bold;stroke-width:5;paint-order:stroke fill markers">
     <group
        width="640"
        height="480"

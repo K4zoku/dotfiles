@@ -58,10 +58,7 @@ berryc focus_follows_pointer false
 berryc move_mask             ctrl
 
 # wallpaper
-feh "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}" &
-
-# bar
-pgrep -x polybar || "${HOME}/.config/polybar/launch.sh"            &
+feh --no-fehbg "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}"
 
 # if reload, do not run app
 [ "${1}" = "reload" ] && exit 0
@@ -81,6 +78,9 @@ picom -b                                &
 
 # notification daemon
 dunst                                   &
+
+# bar
+"${HOME}/.config/polybar/launch.sh"     &
 
 # input daemon
 ibus-daemon -dxrR                       &

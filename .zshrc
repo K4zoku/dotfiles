@@ -345,12 +345,6 @@ append_path() {
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
-select_files() { SELECTION=(); for arg do SELECTION+=("$(readlink -f "$arg")"); done }
-mv()  { if [ "$#" -eq '0' ]; then command mv    "${SELECTION[@]}" .; else command mv    "$@"; fi }
-cp()  { if [ "$#" -eq '0' ]; then command cp -r "${SELECTION[@]}" .; else command cp -r "$@"; fi }
-ln()  { if [ "$#" -eq '0' ]; then command ln -s "${SELECTION[@]}" .; else command ln -s "$@"; fi }
-hln() { if [ "$#" -eq '0' ]; then command ln    "${SELECTION[@]}" .; else command ln    "$@"; fi }
-
 yesno() {
   local MESSAGE=$1
   local TIMEOUT=$2
@@ -364,7 +358,7 @@ yesno() {
 
   REPLY=""
 
-  printf "%s [%s/%s] ('%s' in \e[s" "${MESSAGE}" "${TIMEOUT_REPLY}" "${NORMAL_REPLY}" "${TIMEOUT_REPLY}" 
+  printf "%s [%s/%s] ('%s' in \e[s" "${MESSAGE}" "${TIMEOUT_REPLY}" "${NORMAL_REPLY}" "${TIMEOUT_REPLY}"
   while [ $TIMEOUT -gt 0 ]; do
     TIMEOUT=$((TIMEOUT - 1))
     printf "\e[u%ds) " "${TIMEOUT}"
@@ -379,11 +373,29 @@ yesno() {
   fi
 }
 
-alias s=select_files
+#############################
+# oneliner cli file manager #
+#############################
+## Example usage:
+## $ sel file1.txt file2.txt filen.txt
+## $ cd another_directory
+## $ cp
+## After that file1.txt, file2.txt and filen.txt are copied to another_directory
+## Same usage for mv and ln
+sel()  { SELECTION=(); for arg do SELECTION+=("$(readlink -f "$arg")"); done }
+mv()   { if [ "$#" -eq '0' ]; then command mv     "${SELECTION[@]}" .; else command mv     "$@"; fi }
+fmv()  { if [ "$#" -eq '0' ]; then command mv -f  "${SELECTION[@]}" .; else command mv -f  "$@"; fi }
+cp()   { if [ "$#" -eq '0' ]; then command cp -r  "${SELECTION[@]}" .; else command cp -r  "$@"; fi }
+fcp()  { if [ "$#" -eq '0' ]; then command cp -rf "${SELECTION[@]}" .; else command cp -rf "$@"; fi }
+ln()   { if [ "$#" -eq '0' ]; then command ln -s  "${SELECTION[@]}" .; else command ln -s  "$@"; fi }
+fln()  { if [ "$#" -eq '0' ]; then command ln -sf "${SELECTION[@]}" .; else command ln -sf "$@"; fi }
+hln()  { if [ "$#" -eq '0' ]; then command ln     "${SELECTION[@]}" .; else command ln     "$@"; fi }
+fhln() { if [ "$#" -eq '0' ]; then command ln -f  "${SELECTION[@]}" .; else command ln -f  "$@"; fi }
+alias s=sel
 alias md=mkdir
 alias rd=rmdir
-alias config="${EDITOR} ${HOME}/.zshrc"
-alias reload="source ${HOME}/.zshrc"
+
+alias reload="source "${HOME}/.zshrc""
 alias -g IXIO="| curl -F 'f:1=<-' ix.io"
 
 #################
@@ -391,22 +403,28 @@ alias -g IXIO="| curl -F 'f:1=<-' ix.io"
 #################
 export BFETCH_ART="~/.scripts/fetch art"
 export BFETCH_INFO="~/.scripts/fetch"
+# export COLOR_BLOCK=" ••• "
+export BFETCH_COLOR='[ -z "${COLOR_BLOCK}" ] && COLOR_BLOCK=" "; printcolors() { for i in $(seq "${1}" "${2}"); do printf "\e[1;%dm%s" "${i}" "${COLOR_BLOCK}"; done; printf "\n" }; printcolors 30 37; printcolors 90 97'
 
 case "$(tty)" in
   *pts*)
-    sticker() { pqiv --transparent-background --click-through --keep-above --hide-info-box --low-memory --skip-taskbar --window-title="Sticker" "$@" BG 2>1 >/dev/null }
-    alias icat="kitty +kitten icat"
-    # alias ssh="kitty +kitten ssh use-python"
-    alias ls=ls_extended
+    alias config="${VISUAL} "${HOME}/.zshrc""
 
+    sticker() { pqiv --transparent-background --click-through --keep-above --hide-info-box --low-memory --skip-taskbar --window-title="Sticker" $@ >2 2>/dev/null BG }
+
+    if [ "${TERM}" = "xterm-kitty" ]; then
+      alias icat="kitty +kitten icat"
+      alias ssh="kitty +kitten ssh use-python"
+    fi
+    alias ls="ls_extended"
     # p10k
     source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
     [ -f "${HOME}/.p10k.zsh" ] && source "${HOME}/.p10k.zsh"
   ;;
   *tty*)
-    # do something
+    alias config="${EDITOR} "${HOME}/.zshrc""
+    alias ls="exa"
   ;;
-  *) ;;
 esac
 
 ## END OF FILE ##

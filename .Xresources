@@ -4,69 +4,65 @@
 !!!!!!!!!!!!!!!!
 !!! ayu dark !!!
 !!!!!!!!!!!!!!!!
-#define ayu0 #39BAE6
-#define ayu1 #FFB454
-#define ayu2 #59C2FF
-#define ayu3 #AAD94C
-#define ayu4 #95E6CB
-#define ayu5 #F07178
-#define ayu6 #FF8F40
-#define ayu7 #E6B673
-#define ayu8 #D2A6FF
-#define ayu9 #F29668
+#define ayu0  #39BAE6
+#define ayu1  #FFB454
+#define ayu2  #59C2FF
+#define ayu3  #AAD94C
+#define ayu4  #95E6CB
+#define ayu5  #F07178
+#define ayu6  #FF8F40
+#define ayu7  #E6B673
+#define ayu8  #D2A6FF
+#define ayu9  #F29668
 #define ayu10 #7FD962
 #define ayu11 #73B8FF
 #define ayu12 #F26D78
 #define ayu13 #6C5980
-#define ayu14 #6C598066
-#define ayu15 #6C7380E6
-#define ayu16 #6C738099
-#define ayu17 #6C738080
-#define ayu18 #6C738033
-#define editor_fg #BFBDB6
-#define editor_bg #0D1017
-#define editor_line #131721
-#define editor_selection_active #409FFF4D
-#define editor_selection_inactive #409FFF21
-#define ui_fg #565B66
-#define ui_bg #0B0E14
-#define ui_line #11151C
-#define ui_selection_active #47526640
-#define ui_selection_normal #47526633
-#define ui_panel_bg #0F131A
-#define ui_panel_shadow #00000080
-#define accent #E6B450
-#define error #D95757
-#define comment #ACB6BF8C
+#define ayu_editor_fg #BFBDB6
+#define ayu_editor_bg #0D1017
+#define ayu_editor_line #131721
+#define ayu_editor_selection_active #409FFF4D
+#define ayu_editor_selection_inactive #409FFF21
+#define ayu_ui_fg #565B66
+#define ayu_ui_bg #0B0E14
+#define ayu_ui_line #11151C
+#define ayu_ui_selection_active #47526640
+#define ayu_ui_selection_normal #47526633
+#define ayu_ui_panel_bg #0F131A
+#define ayu_ui_panel_shadow #00000080
+#define ayu_accent  #E6B450
+#define ayu_error   #D95757
+#define ayu_comment #ACB6BF8C
 
 ! special
-*.background: editor_bg
-*.foreground: editor_fg
-*.cursorColor: accent
+*.background:  ayu_editor_bg
+*.foreground:  ayu_editor_fg
+*.cursorColor: ayu_accent
+*.accent: ayu_accent
 ! black
 *.color0: #000000
-*.color8: #475266
+*.color8: ayu_ui_fg
 ! red
-*.color1: error
+*.color1: ayu_error
 *.color9: ayu5
 ! green
-*.color2: ayu10
+*.color2:  ayu10
 *.color10: ayu3
 ! yellow
-*.color3: ayu1
+*.color3:  ayu1
 *.color11: ayu7
 ! blue
-*.color4: ayu0
+*.color4:  ayu0
 *.color12: ayu2
 ! magenta
-*.color5: ayu13
+*.color5:  ayu13
 *.color13: ayu8
 ! cyan
-*.color6: ayu4
+*.color6:  ayu4
 *.color14: #C7FFFC
 ! white
-*.color7: #FFFFFF
-*.color15: #FAFAFA
+*.color7:  #FFFFFF
+*.color15: ayu_editor_fg
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!

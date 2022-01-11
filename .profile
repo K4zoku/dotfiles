@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+if [ -z "${STATIC_PROFILE_LOADED}" ]; then
+export STATIC_PROFILE_LOADED=1
 #######################
 # Turn off beep sound #
 #######################
@@ -44,22 +46,6 @@ export GLFW_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 # export IBUS_ENABLE_SYNC_MODE=1
 
-#####################
-# Network interface #
-#####################
-ETHERNET_INTERFACE="$(command ls /sys/class/net | grep "^e")"
-WIRELESS_INTERFACE="$(command ls /sys/class/net | grep "wl")"
-export ETHERNET_INTERFACE
-export WIRELESS_INTERFACE
-
-###########
-# Theming #
-###########
-export THEME="ayu-dark" # TODO: Rofi theme chooser & theme changer script
-export WALLPAPER_DIRECTORY="${HOME}/.wallpaper" # TODO: rofi wallpaper chooser
-export WALLPAPER="ayu-dark.png" # TODO: Wallapaer changer
-export WALLPAPER_MODE="fill"
-
 #####################################
 # Java application blank window fix #
 #####################################
@@ -83,3 +69,22 @@ export POWEROFF="systemctl poweroff"
 export REBOOT="systemctl reboot"
 export SLEEP="systemctl suspend"
 export LOCK="i3lock-fancy"
+fi
+
+# Dynamic env
+
+#####################
+# Network interface #
+#####################
+ETHERNET_INTERFACE="$(command ls /sys/class/net | grep "^e")"
+WIRELESS_INTERFACE="$(command ls /sys/class/net | grep "wl")"
+export ETHERNET_INTERFACE
+export WIRELESS_INTERFACE
+
+###########
+# Theming #
+###########
+export THEME="ayu-dark" # TODO: rofi theme chooser & theme switcher script
+export WALLPAPER_DIRECTORY="${HOME}/.wallpaper" # TODO: rofi wallpaper chooser
+export WALLPAPER="ayu-dark.png" # TODO: Wallapaer changer
+export WALLPAPER_MODE="fill"
