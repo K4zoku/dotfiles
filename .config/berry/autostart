@@ -86,7 +86,7 @@ dunst                                   &
 ibus-daemon -dxrR                       &
 
 # clipboard daemon
-copq                                    &
+copyq                                   &
 
 # chat client
 ping -c 1 discord.com && discord        &
