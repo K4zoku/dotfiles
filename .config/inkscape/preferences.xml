@@ -164,8 +164,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="229.651"
-         ry="229.651" />
+         rx="367.728"
+         ry="367.728" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -197,7 +197,7 @@
          selcue="1"
          style="stroke-width:1px;"
          usecurrent="0"
-         freehand-mode="4" />
+         freehand-mode="3" />
     </group>
     <eventcontext
        id="calligraphic"
@@ -544,7 +544,7 @@
        id="toolbox" />
     <group
        id="fillstroke"
-       page="1" />
+       page="2" />
     <group
        id="filtereffects" />
     <group
@@ -962,7 +962,7 @@
      org.inkscape.input.gdkpixbuf.png.scale="optimizeQuality" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:'IBM Plex Sans JP Bold';font-family:'IBM Plex Sans JP';font-size:96px;fill:#0d1017;text-anchor:middle;text-align:center;font-weight:bold;stroke-width:5;paint-order:stroke fill markers">
+     style="-inkscape-font-specification:'Open Sans Ultra-Bold';font-family:'Open Sans';font-size:96px;fill:#ffffff;text-anchor:middle;text-align:center;stroke-width:64;paint-order:fill markers stroke;stroke:#ff0000;font-weight:800">
     <group
        width="640"
        height="480"

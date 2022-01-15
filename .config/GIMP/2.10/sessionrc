@@ -41,7 +41,7 @@
                 (aux-info
                     (show-button-bar "true"))))
         (book
-            (position 472)
+            (position 444)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)
