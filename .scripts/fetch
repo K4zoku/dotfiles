@@ -21,7 +21,7 @@ fgcolor() {
 }
 
 print() {
-	[ -z "${2}" ] || printf "${bold}%s%-10s${reset} %s%s\n" "${accent}" "${1:-NULL}" "${normal}" "${2}"
+	[ -z "${2}" ] || printf "${bold}%s%-14s${reset} %s%s\n" "${accent}" "${1:-NULL}" "${normal}" "${2}"
 }
 
 reset="\e[0m"
@@ -55,3 +55,11 @@ print "shell" " ${shell}"
 print "wm" "缾${wm}"
 print "theme" " ${theme}"
 print "icons" " ${icons}"
+# print "os" "arch linux"
+# print "shell" "zsh"
+# print "languages" "c, c++, java, javascript,"
+# print " " "typescript, python"
+# print "text editor" "nvim, subl"
+# print "image editor" "gimp, inkscape"
+# print "games" "osu!lazer, minecraft, factorio"
+# print "discord" "Kazoku#0356"

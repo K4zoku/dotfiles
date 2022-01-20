@@ -45,7 +45,7 @@ padding=1
 modules-center=workspaces
 
 [bar/middle]
-width=25%
+width=30%
 height=30
 offset-x=37.5%
 offset-y=5
@@ -53,7 +53,8 @@ background=${colors.background}
 foreground=${colors.foreground}
 wm-name="polybar-middle"
 font-0="Symbols Nerd Font:style=2048-em:size=12;3"
-font-1="IBM Plex Sans JP:style=Medium:size=11;3"
+font-1="IBM Plex Mono:style=Medium:size=11;3"
+font-2="IBM Plex Sans JP:style=Medium:size=11;3"
 line-size=2
 padding=2
 modules-center=music

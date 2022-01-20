@@ -12,7 +12,7 @@ import os, sys
 message_display_len = 32
 
 # (int) : Font index of polybar. this value should be 1 more than the font value specified in polybar config.
-font_index = 1
+font_index = 2
 
 # (float) : Update speed of the text in seconds.
 update_delay = 0.3
@@ -88,14 +88,10 @@ def update_prefix_suffix(player_name="", status=""):
     pause_button = "%%{A:playerctl %s pause :}%c%%{A}"       %(player_option,control_chars[2])
     next_button  = "%%{A:playerctl %s next :}%c%%{A}"        %(player_option,control_chars[3])
 
-    suffix = "▏" + prev_button
-    if status == "Playing":
-        suffix += "  " + pause_button
-        status_paused = False
-    else:
-        suffix += "  " + play_button
-        status_paused = True
-    suffix += "  " + next_button
+    suffix = " ▏" + prev_button
+    status_paused = status == "Playing"
+    suffix += " " + (pause_button if status_paused else play_button)
+    suffix += " " + next_button
     # print(suffix)
     display_suffix = suffix + "▕"
 
@@ -156,11 +152,13 @@ def update_message():
 
 def scroll():
     global display_text, message_display_len, status_paused
+    dlen = len(display_text)
     if not status_paused:
-        if len(display_text) > message_display_len:
+        if dlen > message_display_len:
             display_text = display_text[1:] + display_text[0]
-        elif len(display_text) < message_display_len:
-            display_text += " "*(message_display_len - len(display_text))
+        elif dlen < message_display_len:
+            pad = " " * ((message_display_len - dlen) // 2)
+            display_text = pad + display_text + pad
 
 def visual_len(text):
     visual_length = 0
