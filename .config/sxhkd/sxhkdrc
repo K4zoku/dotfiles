@@ -1,0 +1,177 @@
+##############################
+# +------------------------+ #
+# | WM INDEPENDENT HOTKEYS | #
+# +------------------------+ #
+##############################
+
+# terminal
+super + Return
+	kitty
+
+# alternative terminal
+super + alt + Return
+	urxvt -sbg
+
+# file manager
+super + e
+	thunar
+
+# apps menu
+super + r
+	${HOME}/.config/rofi/scripts/appsmenu.sh
+
+# task switcher
+alt + Tab
+	${HOME}/.config/rofi/scripts/taskswitcher.sh
+
+# lock
+super + l
+	i3lock-fancy
+
+# reload sxhkd configuration files
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# power menu
+super + x
+	"${HOME}/.config/rofi/scripts/powermenu.sh"
+
+# screenshot menu
+shift + Print
+	"${HOME}/.config/rofi/scripts/screenshot.sh"
+
+# capture fullscreen
+Print
+	"${HOME}/.scripts/shot" now
+
+# capture fullscreen with 5s delay
+Pause
+	"${HOME}/.scripts/shot" timer 5
+
+# capture active window
+alt + Print
+	"${HOME}/.scripts/shot" active
+
+# capture window
+ctrl + Print
+	"${HOME}/.scripts/shot" window
+
+# capture retangular region
+super + shift + s
+	"${HOME}/.scripts/shot" region
+
+# change volume
+super + ctrl + v : {Left,Down,Up,Right,m}
+	"${HOME}/.scripts/change-volume" {down,down,up,up,mute}
+
+# change brightness
+super + ctrl + b : {Left,Down,Up,Right,o}
+	"${HOME}/.scripts/change-brightness" {down,down,up,up,optimal}
+
+# change resolution
+super + ctrl + d : {n,f}
+	"${HOME}/.scripts/change-resolution" {normal,fullhd}
+
+# window center [nowm]
+super + c
+	nowmc center
+
+#####################
+# +---------------+ #
+# | BSPWM HOTKEYS | #
+# +---------------+ #
+#####################
+
+# show key bindings [bspwm]
+super + slash
+    "${HOME}/.config/rofi/scripts/keybindings.sh"
+
+# quit/restart bspwm [bspwm]
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close/kill [bspwm, window]
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout [bspwm, desktop]
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node [bspwm, presel]
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window [bspwm, window]
+super + g
+	bspc node -s biggest.window
+
+# set the window state [bspwm, window]
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags [bspwm, window]
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# focus the node in the given direction [bspwm, window, focus]
+super + {_,shift + }{a,s,w,d}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump [bspwm, window, focus]
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop [bspwm, window, focus]
+super + {_,shift +} Tab
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus or send to the given desktop
+super + {_,shift +} {1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,0}'
+
+# preselect the direction [bspwm, window, presel]
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio [bspwm, presel]
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node [bspwm, window, presel]
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop [bspwm, desktop, presel]
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# expand a window by moving one of its side outward [bspwm, window, geometry, size]
+super + ctrl + s : {a,s,w,d}
+	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
+
+# contract a window by moving one of its side inward [bspwm, window, geometry, size]
+super + ctrl + shift + s : {a,s,w,d}
+	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
+
+# expand/contract a window by moving one of its side outward/inward [bspwm, window, geometry, size]
+super + ctrl + alt + s : {a,s,w,d}
+	STEP=10; SELECTION={1,2,3,4}; \
+	bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+	bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+
+# move a floating window [bspwm, window, geometry, position]
+super + ctrl + a : {a,s,w,d}
+	bspc node -v {-2 0,0 2,0 -2,2 0}
+
+# hide focused window [bspwm, window]
+super + Next
+	bspc node --flag hidden=on
+
+# unhide hidden window [bspwm, window]
+super + Prior
+	bspc node $(bspc query -N -n .hidden.local.window 2>&1 | head -n 1) --flag hidden=off

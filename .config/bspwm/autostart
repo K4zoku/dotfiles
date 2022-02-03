@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+
+#########################
+# APPLICATION AUTOSTART #
+#########################
+
+# fix cursor
+xsetroot -cursor_name left_ptr          &
+
+# hotkey daemon
+sxhkd       						    &
+
+# compositor
+picom -b                                &
+
+# notification daemon
+dunst                                   &
+
+# bar
+"${HOME}/.config/polybar/launch.sh"     &
+
+# input daemon
+ibus-daemon -dxrR                       &
+
+# clipboard daemon
+copyq                                   &
+
+# chat client
+ping -c 1 discord.com && discord        &

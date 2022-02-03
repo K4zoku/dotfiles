@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# profile
+. "${HOME}/.profile"
+
+bspc monitor -d " " " " " " " " "ﳨ " " " " "
+# geometry
+bspc config left_padding                0
+bspc config bottom_padding              0
+bspc config top_padding                 40
+bspc config right_padding               0
+
+bspc config left_monocle_padding        0
+bspc config bottom_monocle_padding      0
+bspc config top_monocle_padding         0
+bspc config right_monocle_padding       0
+
+bspc config window_gap                  8
+
+# Border
+bspc config border_width                4
+bspc config normal_border_color         "#11151C"
+bspc config focused_border_color        "#E6B450"
+bspc config active_border_color         "#E6B450"
+bspc config presel_feedback_color       "#59C2FF"
+
+# Multihead behavior
+bspc config remove_disabled_monitors    true
+bspc config remove_unplugged_monitors   true
+
+# Focusing behavior
+bspc config focus_follows_pointer       false
+bspc config click_to_focus              any
+bspc config swallow_first_click         false
+
+# Pointer
+bspc config pointer_modifier            mod4
+bspc config pointer_action1             move
+bspc config pointer_action2             resize_side
+bspc config pointer_action3             resize_corner
+
+# Misc
+bspc config split_ratio                 0.5
+bspc config single_monocle              true
+bspc config borderless_monocle          true
+bspc config gapless_monocle             false
+bspc config honor_size_hints            true
+
+# Rule
+bspc rule -a Discord            desktop='^1'
+bspc rule -a Chromium           desktop='^2'
+
+# wallpaper
+feh --no-fehbg "--bg-${WALLPAPER_MODE}" "${WALLPAPER_DIRECTORY}/${WALLPAPER}"
+
+# if reload, do not run autostart
+[ "${1}" = "reload" ] && exit 0
+
+# spawn all new window in floating state
+bspc subscribe node_add | while read -a msg ; do
+    node_id="${msg[4]}"
+    bspc node "${node_id}" -t floating
+done &
+
+# raise focused floating window
+while bspc subscribe --count 1 node_focus > /dev/null; do
+    bspc query --tree --node focused.floating |
+        jq --raw-output '.client.layer | if (. != "normal") then "normal" else "above" end, .' |
+            while read layer; do
+                bspc node focused.floating --layer "$layer"
+            done
+    # bspc node focused.floating --layer above
+    # bspc node focused.floating --layer normal
+done &
+
+. "${HOME}/.config/bspwm/autostart" &
