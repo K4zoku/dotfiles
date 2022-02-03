@@ -31,7 +31,7 @@ super + Escape
     pkill -USR1 -x sxhkd
 
 # power menu
-super + shift + q
+super + x
     "${HOME}/.config/rofi/scripts/powermenu.sh"
 
 # screenshot menu
@@ -129,3 +129,7 @@ super + c
 # [berrywm] focus
 ~button1
     berryc pointer_focus
+
+# [berrywm] raise
+super + z
+    berryc window_raise
