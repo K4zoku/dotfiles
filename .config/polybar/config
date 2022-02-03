@@ -43,6 +43,7 @@ font-3="Symbols Nerd Font:style=2048-em:size=12;3"
 line-size=2
 padding=1
 modules-center=workspaces
+wm-restack = bspwm
 
 [bar/middle]
 width=30%
@@ -57,26 +58,26 @@ font-1="IBM Plex Mono:style=Medium:size=11;3"
 font-2="IBM Plex Sans JP:style=Medium:size=11;3"
 line-size=2
 padding=2
-modules-center=music
+modules-center= music
+wm-restack = bspwm
 
 [bar/right]
-width=22%:+8
+width=25%
 height=30
-offset-x=78%:-8
+offset-x=75%:-8
 offset-y=5
 background=${colors.background}
 foreground=${colors.foreground}
 padding=5
-font-0="Rubik:style=Medium:size=11;3"
+font-0="IBM Plex Sans JP:style=Medium:size=11;3"
 font-1="Font Awesome 5 Free:style=Regular:size=10;3"
 font-2="Font Awesome 5 Brands:style=Regular:size=10;3"
-font-3="IBM Plex Sans JP:style=Medium:size=11;3"
-font-4="Symbols Nerd Font:style=2048-em:size=12;3"
-module-margin-right=1
-modules-left=datetime pulseaudio
-tray-offset-x=-8
+font-3="Symbols Nerd Font:style=2048-em:size=12;3"
+modules-left=pulseaudio backlight battery datetime
+modules-right=
 tray-position=right
 tray-background=${colors.background-alt}
+wm-restack = bspwm
 
 [module/music]
 type = custom/script
@@ -90,20 +91,19 @@ type=internal/date
 date="%b %d"
 time="%H:%M"
 label="  %time% "
-label-font=0
+click-left="~/.scripts/dcal"
+click-right="~/.scripts/dcal"
 
 [module/workspaces]
 type=internal/xworkspaces
-ws-icon-0=D;
-ws-icon-1=C;
-ws-icon-2=T;
-ws-icon-3=c;
-ws-icon-4=g;
-ws-icon-5=s;
-ws-icon-6=F;
-ws-icon-7=R;ﳨ
-ws-icon-8=S;
-ws-icon-9=G;
+reverse-scroll = true
+# ws-icon-0=1;
+# ws-icon-1=2;
+# ws-icon-2=3;
+# ws-icon-3=4;
+# ws-icon-4=5;ﳨ
+# ws-icon-5=6;
+# ws-icon-6=0;
 ws-icon-default=
 
 format=<label-state>
@@ -116,8 +116,11 @@ label-urgent-background=${colors.urgent}
 label-urgent-foreground=${colors.foreground}
 label-urgent-padding=0
 
+label-occupied-foreground=${colors.foreground-alt-alt}
+label-occupied-underline = ${colors.foreground-alt-alt}
 label-occupied-padding=0
 
+label-empty-foreground=${colors.foreground-alt}
 label-empty-padding=0
 
 [module/pulseaudio]
@@ -131,3 +134,79 @@ ramp-volume-0= 
 ramp-volume-1= 
 ramp-volume-2= 
 click-right=pavucontrol
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Defaults to true unless the specified card is an amdgpu backlight.
+use-actual-brightness = true
+
+; Enable changing the backlight with the scroll wheel
+enable-scroll = true
+scroll-up = 10
+scroll-down = 10
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp>
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+ramp-0 = " "
+ramp-1 = " "
+ramp-2 = " "
+ramp-3 = " "
+ramp-4 = " "
+ramp-font = 4
+ramp-foreground = ${colors.secondary}
+
+; Only applies if <bar> is used
+bar-width = 5
+bar-indicator = |
+bar-fill = -
+bar-empty = ─
+
+
+bar-background = ${colors.bgL}
+ramp-background = ${colors.bgL}
+label-background = ${colors.bgL}
+
+[module/battery]
+type = internal/battery
+full-at = 100
+battery = BAT0
+adapter = AC
+poll-interval = 1
+
+format-charging = <ramp-capacity>
+format-discharging = <ramp-capacity>
+format-full = <ramp-capacity>
+;label-charging = Charging %percentage%%
+label-charging = %percentage%%
+label-discharging = Discharging %percentage%%
+label-full = 100%
+format-charging-padding = 1
+format-discharging-padding = 1
+format-full-padding = 1
+
+format-charging-foreground = ${colors.green}
+format-discharging-foreground = ${colors.red}
+format-full-foreground = ${colors.blue}
+
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+
+format-full-background = ${colors.bgL}
+format-charging-background = ${colors.bgL}
+format-discharging-background = ${colors.bgL}
