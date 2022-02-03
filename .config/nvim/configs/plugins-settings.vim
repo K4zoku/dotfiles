@@ -6,8 +6,8 @@ autocmd vimenter * ++nested colorscheme ayu
 " }}}
 
 " Minimap: {{{
-let g:minimap_auto_start=1
-let g:minimap_auto_start_win_enter=1
+" let g:minimap_auto_start=1
+" let g:minimap_auto_start_win_enter=1
 " }}}
 
 " NERDTree: {{{
@@ -64,5 +64,5 @@ let g:airline_powerline_fonts = 1
 
 " Discord Rich Presence: {{{
 "
-let g:presence_neovim_image_text = "n-words vim (nvim) - Nuoc tay rua bon cau mau den"
+" let g:presence_neovim_image_text = "n-words vim (nvim) - Nuoc tay rua bon cau mau den"
 " }}}
